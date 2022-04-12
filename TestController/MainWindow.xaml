@@ -1,0 +1,20 @@
+﻿<Window x:Class="TestController.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestController"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <TextBox x:Name="TextBoxQuestionContent" TextWrapping="Wrap" Text="Write text of question here" Margin="10,84,225,217"/>
+        <Label x:Name="LabelQuestion" Content="Question:" Margin="10,58,664,350"/>
+        <Label x:Name="LabelAnswer" Content="Answer:" Margin="10,217,738,189"/>
+        <TextBox TextWrapping="Wrap" Text="TextBox" Margin="13,245,225,106"/>
+        <Label x:Name="LabelCostOfAnswer" Content="Cost of answer:" Margin="223,220,486,191"/>
+        <Button x:Name="ButtonCostOfAnswerUp" Content="↑" Margin="327,219,462,191"/>
+        <Button x:Name="ButtonCostOfAnswerDown" Content="↓" Margin="337,219,452,191"/>
+        <TextBlock x:Name="TextBlockCostOfAnswer" TextWrapping="Wrap" Text="1" Margin="310,225,476,191" TextAlignment="Center"/>
+
+    </Grid>
+</Window>
