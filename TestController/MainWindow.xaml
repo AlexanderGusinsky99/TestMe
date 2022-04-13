@@ -15,6 +15,14 @@
         <Button x:Name="ButtonCostOfAnswerUp" Content="↑" Margin="327,219,462,191"/>
         <Button x:Name="ButtonCostOfAnswerDown" Content="↓" Margin="337,219,452,191"/>
         <TextBlock x:Name="TextBlockCostOfAnswer" TextWrapping="Wrap" Text="1" Margin="310,225,476,191" TextAlignment="Center"/>
+        <TabControl>
+            <TabItem Header="TabItem">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+            <TabItem Header="TabItem">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+        </TabControl>
 
     </Grid>
 </Window>
