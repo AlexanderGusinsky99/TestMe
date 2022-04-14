@@ -14,9 +14,7 @@
         <Button Content="Poll creator" Margin="0,79,700,325" Width="100" Height="30"/>
         <Button Content="Test creator" Margin="0,49,700,355" Width="100" Height="30"/>
         <Button Content="Button" Margin="0,229,700,175" Width="100" Height="30"/>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="210" Margin="100,49,0,0" VerticalAlignment="Top" Width="524" Background="White">
-            <Label Content="Choose type of question" HorizontalAlignment="Left" Height="22" Margin="6,21,0,0" VerticalAlignment="Top" Width="107" FontSize="9"/>
-        </Border>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="210" Margin="100,49,0,0" VerticalAlignment="Top" Width="524" Background="White"/>
         <TextBox HorizontalAlignment="Left" Height="16" Margin="186,58,0,0" TextWrapping="Wrap" Text="NoNameTest" VerticalAlignment="Top" Width="110" FontSize="9"/>
         <Button Content="add question" Margin="392,78,350,340" FontSize="9"/>
         <TextBox TextWrapping="Wrap" Text="Enter text of question" Margin="105,94,350,280" FontSize="9"/>
@@ -28,5 +26,6 @@
             <ComboBoxItem Content="QuestionSortAnswersInRigthOrder"/>
             <ComboBoxItem Content="user's answer"/>
         </ComboBox>
+        <TextBox HorizontalAlignment="Left" Height="51" Margin="105,178,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="345" FontSize="9"/>
     </Grid>
 </Window>
