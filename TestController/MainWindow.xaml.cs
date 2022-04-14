@@ -24,5 +24,10 @@ namespace TestController
         {
             InitializeComponent();
         }
+
+        private void TextBoxQuestionContent_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

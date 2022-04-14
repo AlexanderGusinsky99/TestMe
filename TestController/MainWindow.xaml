@@ -7,22 +7,26 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TextBox x:Name="TextBoxQuestionContent" TextWrapping="Wrap" Text="Write text of question here" Margin="10,84,225,217"/>
-        <Label x:Name="LabelQuestion" Content="Question:" Margin="10,58,664,350"/>
-        <Label x:Name="LabelAnswer" Content="Answer:" Margin="10,217,738,189"/>
-        <TextBox TextWrapping="Wrap" Text="TextBox" Margin="13,245,225,106"/>
-        <Label x:Name="LabelCostOfAnswer" Content="Cost of answer:" Margin="223,220,486,191"/>
-        <Button x:Name="ButtonCostOfAnswerUp" Content="↑" Margin="327,219,462,191"/>
-        <Button x:Name="ButtonCostOfAnswerDown" Content="↓" Margin="337,219,452,191"/>
-        <TextBlock x:Name="TextBlockCostOfAnswer" TextWrapping="Wrap" Text="1" Margin="310,225,476,191" TextAlignment="Center"/>
-        <TabControl>
-            <TabItem Header="TabItem">
-                <Grid Background="#FFE5E5E5"/>
-            </TabItem>
-            <TabItem Header="TabItem">
-                <Grid Background="#FFE5E5E5"/>
-            </TabItem>
-        </TabControl>
-
+        <Button Content="Users" Margin="0,139,700,265" Width="100" Height="30"/>
+        <Button Content="Button" Margin="0,169,700,235" Width="100" Height="30"/>
+        <Button Content="Button" Margin="0,199,700,205" Width="100" Height="30"/>
+        <Button Content="Tests" Margin="0,109,700,295" Width="100" Height="30"/>
+        <Button Content="Poll creator" Margin="0,79,700,325" Width="100" Height="30"/>
+        <Button Content="Test creator" Margin="0,49,700,355" Width="100" Height="30"/>
+        <Button Content="Button" Margin="0,229,700,175" Width="100" Height="30"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="210" Margin="100,49,0,0" VerticalAlignment="Top" Width="524" Background="White">
+            <Label Content="Choose type of question" HorizontalAlignment="Left" Height="22" Margin="6,21,0,0" VerticalAlignment="Top" Width="107" FontSize="9"/>
+        </Border>
+        <TextBox HorizontalAlignment="Left" Height="16" Margin="186,58,0,0" TextWrapping="Wrap" Text="NoNameTest" VerticalAlignment="Top" Width="110" FontSize="9"/>
+        <Button Content="add question" Margin="392,78,350,340" FontSize="9"/>
+        <TextBox TextWrapping="Wrap" Text="Enter text of question" Margin="105,94,350,280" FontSize="9"/>
+        <Label Content="Enter test name:" HorizontalAlignment="Left" Height="23" Margin="105,53,0,0" VerticalAlignment="Top" Width="77" FontSize="9"/>
+        <Button Content="add answer" HorizontalAlignment="Left" Height="17" Margin="392,157,0,0" VerticalAlignment="Top" Width="58" FontSize="9"/>
+        <ComboBox HorizontalAlignment="Left" Height="11" Margin="218,78,0,0" VerticalAlignment="Top" Width="98">
+            <ComboBoxItem Content="QuestionWithOneAnswer"/>
+            <ComboBoxItem Content="QuestionWithSeveralAnswers"/>
+            <ComboBoxItem Content="QuestionSortAnswersInRigthOrder"/>
+            <ComboBoxItem Content="user's answer"/>
+        </ComboBox>
     </Grid>
 </Window>
