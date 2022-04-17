@@ -8,18 +8,22 @@ namespace TestMe.BLL
 {
     public class Test : IAnswerable
     {
-        private List<AbstractQuetion> _listOfQuestions;
-        private int Lenght = 0;
+        private List<AbstractQuestion> _listOfQuestions;
+        private int Length = 0;
         public string Name { get; set; }
-
+        public Test(string nameOfTest, List<AbstractQuestion> listOfQuestions)
+        {
+            Name = nameOfTest;
+            _listOfQuestions = listOfQuestions;
+        }
         public void SetName(string nameOfTest)
         {
             Name = nameOfTest;
         }
-        public void AddQuestion(AbstractQuetion quetion)
+        public void AddQuestion(AbstractQuestion question)
         {
-            _listOfQuestions.Add(quetion);
-            Lenght++;
+            _listOfQuestions.Add(question);
+            Length++;
         }
     }
 }

@@ -14,7 +14,7 @@ namespace TestMe.BLL
         {
             Name = nameOfPoll;
         }
-        public void AddQuestion(AbstractQuetion quetion)
+        public void AddQuestion(AbstractQuestion quetion)
         {
         }
     }

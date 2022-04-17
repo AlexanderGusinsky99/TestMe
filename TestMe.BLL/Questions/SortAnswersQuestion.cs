@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TestMe.BLL
 {
-    public class SortAnswersQuestion : AbstractQuetion
+    public class SortAnswersQuestion : AbstractQuestion
     {
     }
 }

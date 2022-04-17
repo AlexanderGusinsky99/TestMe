@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TestMe.BLL
 {
-    public class SeveralAnswersQuestion : AbstractQuetion
+    public class SeveralAnswersQuestion : AbstractQuestion
     {
     }
 }
