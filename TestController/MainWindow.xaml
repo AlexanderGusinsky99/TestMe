@@ -8,25 +8,30 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Button Content="Users" Margin="0,139,700,265" Width="100" Height="30"/>
-        <Button Content="Button" Margin="0,169,700,235" Width="100" Height="30"/>
+        <Button x:Name="ButtonTGCheckChat" Content="TGCheckChat" Margin="0,169,700,235" Width="100" Height="30" Click="ButtonTGCheckChat_Click"/>
         <Button Content="Button" Margin="0,199,700,205" Width="100" Height="30"/>
         <Button Content="Tests" Margin="0,109,700,295" Width="100" Height="30"/>
         <Button Content="Poll creator" Margin="0,79,700,325" Width="100" Height="30"/>
-        <Button Content="Test creator" Margin="0,49,700,355" Width="100" Height="30"/>
+        <Button x:Name="ButtonTestCreator" Content="Test creator" Margin="0,49,700,355" Width="100" Height="30" Click="ButtonTestCreator_Click"/>
         <Button Content="Button" Margin="0,229,700,175" Width="100" Height="30"/>
-        <TextBox x:Name="TextBoxNameOfTest" HorizontalAlignment="Left" Height="16" Margin="186,58,0,0" TextWrapping="Wrap" Text="NoNameTest" VerticalAlignment="Top" Width="110" FontSize="9"/>
-        <Button x:Name="ButtonAddQuestion" Content="add question" Margin="392,243,350,175" FontSize="9" Click="ButtonAddQuestion_Click"/>
-        <TextBox x:Name="TextBoxTextOfQuestion" TextWrapping="Wrap" Text="Enter text of question" Margin="105,94,350,280" FontSize="9"/>
-        <Label Content="Enter test name:" HorizontalAlignment="Left" Height="23" Margin="105,53,0,0" VerticalAlignment="Top" Width="77" FontSize="9"/>
-        <Button x:Name="ButtonAddAnswer" Content="add answer" HorizontalAlignment="Left" Height="17" Margin="392,181,0,0" VerticalAlignment="Top" Width="58" FontSize="9" Click="ButtonAddAnswer_Click"/>
-        <ComboBox HorizontalAlignment="Left" Height="11" Margin="218,78,0,0" VerticalAlignment="Top" Width="98">
-            <ComboBoxItem Content="QuestionWithOneAnswer"/>
-            <ComboBoxItem Content="QuestionWithSeveralAnswers"/>
-            <ComboBoxItem Content="QuestionSortAnswersInRigthOrder"/>
-            <ComboBoxItem Content="user's answer"/>
-        </ComboBox>
-        <TextBox x:Name="TextBoxAnswer" HorizontalAlignment="Left" Height="17" Margin="105,159,0,0" TextWrapping="Wrap" Text="Enter answer" VerticalAlignment="Top" Width="345" FontSize="9"/>
-        <WrapPanel x:Name="WrapPanelAnswers" HorizontalAlignment="Left" Height="78" Margin="105,181,0,0" VerticalAlignment="Top" Width="282" Orientation="Vertical"/>
-        <Button x:Name="ButtonCreateTest" Content="CREATE TEST" HorizontalAlignment="Left" Height="54" Margin="487,0,0,0" VerticalAlignment="Center" Width="115" Click="ButtonCreateTest_Click"/>
+        <Grid x:Name="GridTestCreator" HorizontalAlignment="Left" Height="206" Margin="105,53,0,0" VerticalAlignment="Top" Width="497" Visibility="Hidden">
+            <TextBox x:Name="TextBoxNameOfTest" HorizontalAlignment="Left" Height="16" Margin="81,5,0,0" TextWrapping="Wrap" Text="NoNameTest" VerticalAlignment="Top" Width="110" FontSize="9"/>
+            <Button x:Name="ButtonAddQuestion" Content="add question" Margin="287,190,152,0" FontSize="9" Click="ButtonAddQuestion_Click"/>
+            <TextBox x:Name="TextBoxTextOfQuestion" TextWrapping="Wrap" Text="Enter text of question" Margin="0,41,152,105" FontSize="9"/>
+            <Label Content="Enter test name:" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="77" FontSize="9"/>
+            <Button x:Name="ButtonAddAnswer" Content="add answer" HorizontalAlignment="Left" Height="17" Margin="287,128,0,0" VerticalAlignment="Top" Width="58" FontSize="9" Click="ButtonAddAnswer_Click"/>
+            <ComboBox HorizontalAlignment="Left" Height="11" Margin="113,25,0,0" VerticalAlignment="Top" Width="98">
+                <ComboBoxItem Content="QuestionWithOneAnswer"/>
+                <ComboBoxItem Content="QuestionWithSeveralAnswers"/>
+                <ComboBoxItem Content="QuestionSortAnswersInRigthOrder"/>
+                <ComboBoxItem Content="user's answer"/>
+            </ComboBox>
+            <TextBox x:Name="TextBoxAnswer" HorizontalAlignment="Left" Height="17" Margin="0,106,0,0" TextWrapping="Wrap" Text="Enter answer" VerticalAlignment="Top" Width="345" FontSize="9"/>
+            <WrapPanel x:Name="WrapPanelAnswers" HorizontalAlignment="Left" Height="78" Margin="0,128,0,0" VerticalAlignment="Top" Width="282" Orientation="Vertical"/>
+            <Button x:Name="ButtonCreateTest" Content="CREATE TEST" HorizontalAlignment="Left" Height="54" Margin="382,137,0,0" VerticalAlignment="Top" Width="115" Click="ButtonCreateTest_Click"/>
+        </Grid>
+        <Label x:Name="LabelEnter" Content="Enter" HorizontalAlignment="Left" Height="56" Margin="250,31,0,0" VerticalAlignment="Top" Width="104"/>
+        <Label x:Name="LabelOutPut" Content="Output" HorizontalAlignment="Left" Height="56" Margin="515,31,0,0" VerticalAlignment="Top" Width="104"/>
+        <ListBox HorizontalAlignment="Left" Height="249" Margin="461,62,0,0" VerticalAlignment="Top" Width="212" d:ItemsSource="{d:SampleData ItemCount=5}"/>
     </Grid>
 </Window>
