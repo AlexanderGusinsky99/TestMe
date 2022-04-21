@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 using TestMe.BLL;
 
 namespace TestController
@@ -21,19 +22,18 @@ namespace TestController
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
-        {
-            InitializeComponent();
-        }
         public List<string> _crntAnswers = new List<string>();
         public List<AbstractQuestion> _crntQuestions = new List<AbstractQuestion>();
         public int _indexOfRigthAnswer = -1;
         private List<Test> _listOfTests = new List<Test>();
-        private void TextBoxQuestionContent_TextChanged(object sender, TextChangedEventArgs e)
+        private TelegramBot _telegramBot;
+        private const string _token = "5214418897:AAGMzUpDI8mf2cVJ0S7kFGa_QheT0LYonMQ";
+        private DispatcherTimer _timer;
+        
+        public MainWindow()
         {
-
+            InitializeComponent();
         }
-
         private void ButtonAddAnswer_Click(object sender, RoutedEventArgs e)
         {
             RadioButton answer = new RadioButton();
@@ -60,6 +60,14 @@ namespace TestController
             WrapPanelAnswers.Children.Clear();
             TextBoxTextOfQuestion.Text = "Enter text of question";
 
+        }
+        private void ButtonTestCreator_Click(object sender, RoutedEventArgs e)
+        {
+            GridTestCreator.Visibility = Visibility.Visible;
+        }
+        private void ButtonTGCheckChat_Click(object sender, RoutedEventArgs e)
+        {
+            GridTestCreator.Visibility = Visibility.Hidden;
         }
     }
 }

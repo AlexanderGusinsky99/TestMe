@@ -8,6 +8,7 @@ namespace TestMe.BLL
 {
     public class User
     {
+        //private long _userID; (хранить ID пользователя)
         public string UserName { get; set; }
         public string RealName
         {
