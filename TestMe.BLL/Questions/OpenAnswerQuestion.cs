@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TestMe.BLL
 {
-    public class OpenAnswerQuestion : AbstractQuestion
+    public class OpenAnswerQuestion : AbstractQuestion // Юзер вводит свой ответ
     {
     }
 }

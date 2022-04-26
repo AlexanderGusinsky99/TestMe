@@ -59,6 +59,7 @@ namespace TestController
             
             string textOfQuestion = TextBoxTextOfQuestion.Text;
             TextBoxTextOfQuestion.Text = "Enter text of question";
+            TextBoxTextOfAnswer.Text = "Enter text of answer";
             AbstractQuestion question = new OneAnswerQuestion(textOfQuestion, _crntAnswers, _indexOfRigthAnswer);
             _crntQuestions.Add(question);
             WrapPanelAnswers.Children.Clear();
@@ -115,6 +116,6 @@ namespace TestController
             }
         }
 
-
+       
     }
 }

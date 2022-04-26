@@ -15,6 +15,12 @@
             <TextBox x:Name="TextBoxTextOfAnswer" HorizontalAlignment="Left" Height="22" Margin="5,83,0,0" TextWrapping="Wrap" Text="Enter text of answer" VerticalAlignment="Top" Width="442" PreviewMouseDown="TextBoxTextOfAnswer_PreviewMouseDown"/>
             <WrapPanel x:Name="WrapPanelAnswers" HorizontalAlignment="Left" Height="119" Margin="5,110,0,0" VerticalAlignment="Top" Width="347" Orientation="Vertical"/>
             <Button x:Name="ButtonCreateTest" Content="CREATE TEST" HorizontalAlignment="Left" Height="30" Margin="357,199,0,0" VerticalAlignment="Top" Width="90" Click="ButtonCreateTest_Click" FontSize="12"/>
+            <ComboBox x:Name="ComboBoxSelectTypeOfAnswer" HorizontalAlignment="Left" Height="20" Margin="219,4,0,0" VerticalAlignment="Top" Width="183">
+                <ComboBoxItem Content="One answer question" IsSelected="True"/>
+                <ComboBoxItem Content="Several answer question"/>
+                <ComboBoxItem Content="Sort answer question"/>
+                <ComboBoxItem Content="Open answer question"/>
+            </ComboBox>
         </Grid>
         <Grid HorizontalAlignment="Left" Height="368" Margin="0,-30,0,0" VerticalAlignment="Top" Width="182">
             <Button x:Name="ButtonTestCreator" Content="Test creator" Margin="31,90,29,235" Click="ButtonTestCreator_Click"/>

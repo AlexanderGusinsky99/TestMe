@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TestMe.BLL
 {
-    public class SeveralAnswersQuestion : AbstractQuestion
+    public class SeveralAnswersQuestion : AbstractQuestion // Юзер выбирает несколько вариантов ответа
     {
     }
 }

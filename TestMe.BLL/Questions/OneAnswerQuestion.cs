@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TestMe.BLL
 {
-    public class OneAnswerQuestion : AbstractQuestion
+    public class OneAnswerQuestion : AbstractQuestion // Выбор одного ответа
     {
         //Поля или свойства? Пока не ясно, главное, чтобы работало, но потом поправить нужно обязательно
         public string TextOfQuestion { get; set; }
