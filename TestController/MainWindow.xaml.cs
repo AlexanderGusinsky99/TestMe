@@ -26,6 +26,7 @@ namespace TestController
         public List<AbstractQuestion> _crntQuestions = new List<AbstractQuestion>();
         public int _indexOfRigthAnswer = -1;
         private List<Test> _listOfTests = new List<Test>();
+        //private List<Poll> _listOfPolls = new List<Poll>(); Добавить лист Опросников
         private TelegramBot _telegramBot;
         private const string _token = "5214418897:AAGMzUpDI8mf2cVJ0S7kFGa_QheT0LYonMQ";
         private DispatcherTimer _timer;
@@ -46,11 +47,15 @@ namespace TestController
         }
         private void ButtonTestCreator_Click(object sender, RoutedEventArgs e)
         {
+            GridTests.Visibility = Visibility.Hidden;
+            GridPollCreator.Visibility = Visibility.Hidden;
             GridTestCreator.Visibility = Visibility.Visible;
         }
         private void ButtonTGCheckChat_Click(object sender, RoutedEventArgs e)
         {
             GridTestCreator.Visibility = Visibility.Hidden;
+            GridPollCreator.Visibility = Visibility.Hidden;
+            GridTests.Visibility = Visibility.Hidden;
         }
 
 
@@ -116,6 +121,25 @@ namespace TestController
             }
         }
 
-       
+      
+
+        private void ButtonPollCreator_Click(object sender, RoutedEventArgs e)
+        {
+            GridTestCreator.Visibility = Visibility.Hidden;
+            GridTests.Visibility = Visibility.Hidden;
+            GridPollCreator.Visibility = Visibility.Visible;
+        }
+
+        private void ButtonTestsAndPolls_Click(object sender, RoutedEventArgs e)
+        {
+            GridTestCreator.Visibility = Visibility.Hidden;
+            GridPollCreator.Visibility = Visibility.Hidden;
+            GridTests.Visibility = Visibility.Visible;
+        }
+
+        private void ButtonCreatePoll_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
