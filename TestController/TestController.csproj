@@ -8,12 +8,30 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="chat_icon.png" />
+    <None Remove="document_icon.png" />
+    <None Remove="folder_document_multimedia_icon.png" />
+    <None Remove="LOGO5-removebg-preview.png" />
+    <None Remove="poll_icon.png" />
+    <None Remove="users_people_icon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Telegram.Bot" Version="17.0.0" />
     <PackageReference Include="Telegram.Bot.Extensions.Polling" Version="1.0.2" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\TestMe.BLL\TestMe.BLL.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\chat_icon.png" />
+    <Resource Include="Images\document_icon.png" />
+    <Resource Include="Images\folder_document_multimedia_icon.png" />
+    <Resource Include="Images\LOGO5-removebg-preview.png" />
+    <Resource Include="Images\poll_icon.png" />
+    <Resource Include="Images\users_people_icon.png" />
   </ItemGroup>
 
 </Project>
