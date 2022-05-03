@@ -7,21 +7,57 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="517" Width="819">
     <Grid Margin="0,0,0,-6">
-        <Grid x:Name="GridTestCreator" HorizontalAlignment="Left" Height="357" Margin="174,58,0,0" VerticalAlignment="Top" Width="599" Visibility="Visible">
-            <TextBox x:Name="TextBoxNameOfTest" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="206" Margin="5,4,0,0" Text="Enter name of test" PreviewMouseDown="TextBoxNameOfTest_PreviewMouseDown"/>
-            <Button x:Name="ButtonAddQuestion" Content="add question" Margin="357,135,152,200" Click="ButtonAddQuestion_Click"/>
-            <TextBox x:Name="TextBoxTextOfQuestion" TextWrapping="Wrap" Text="Enter text of question" Margin="5,30,152,279" PreviewMouseDown="TextBoxTextOfQuestion_PreviewMouseDown"/>
-            <Button x:Name="ButtonAddAnswer" Content="add answer" HorizontalAlignment="Left" Height="20" Margin="357,110,0,0" VerticalAlignment="Top" Width="90" Click="ButtonAddAnswer_Click"/>
-            <TextBox x:Name="TextBoxTextOfAnswer" HorizontalAlignment="Left" Height="22" Margin="5,83,0,0" TextWrapping="Wrap" Text="Enter text of answer" VerticalAlignment="Top" Width="442" PreviewMouseDown="TextBoxTextOfAnswer_PreviewMouseDown"/>
-            <WrapPanel x:Name="WrapPanelAnswers" HorizontalAlignment="Left" Height="119" Margin="5,110,0,0" VerticalAlignment="Top" Width="347" Orientation="Vertical"/>
-            <Button x:Name="ButtonCreateTest" Content="CREATE TEST" HorizontalAlignment="Left" Height="30" Margin="357,199,0,0" VerticalAlignment="Top" Width="90" Click="ButtonCreateTest_Click" FontSize="12"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="410*"/>
+            <ColumnDefinition Width="409*"/>
+        </Grid.ColumnDefinitions>
+        <Grid x:Name="GridTestCreator" HorizontalAlignment="Left" Height="351" Margin="222,58,0,0" VerticalAlignment="Top" Width="574" Visibility="Visible" Grid.ColumnSpan="2">
+            <TextBox x:Name="TextBoxNameOfTest" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="254" Margin="5,5,0,0" Text="Enter name of test" PreviewMouseDown="TextBoxNameOfTest_PreviewMouseDown" Visibility="Visible"/>
+            <Button x:Name="ButtonAddQuestion" Content="add question" Margin="357,170,127,141" Click="ButtonAddQuestion_Click" Visibility="Visible"/>
+            <TextBox x:Name="TextBoxTextOfQuestion" TextWrapping="Wrap" Text="Enter text of question" Margin="5,30,127,279" PreviewMouseDown="TextBoxTextOfQuestion_PreviewMouseDown" Visibility="Visible"/>
+            <Button x:Name="ButtonAddAnswer" Content="add answer" HorizontalAlignment="Left" Height="44" Margin="357,121,0,0" VerticalAlignment="Top" Width="90" Click="ButtonAddAnswer_Click" Visibility="Visible"/>
+            <TextBox x:Name="TextBoxTextOfAnswer" HorizontalAlignment="Left" Height="22" Margin="5,83,0,0" TextWrapping="Wrap" Text="Enter text of answer" VerticalAlignment="Top" Width="442" PreviewMouseDown="TextBoxTextOfAnswer_PreviewMouseDown" Visibility="Visible"/>
+            <WrapPanel x:Name="WrapPanelAnswers" HorizontalAlignment="Left" Height="119" Margin="5,110,0,0" VerticalAlignment="Top" Width="347" Orientation="Vertical" Visibility="Hidden"/>
+            <Button x:Name="ButtonCreateTest" Content="CREATE TEST" HorizontalAlignment="Left" Height="48" Margin="357,219,0,0" VerticalAlignment="Top" Width="90" Click="ButtonCreateTest_Click" FontSize="12" Visibility="Visible"/>
+            <ComboBox x:Name="ComboBoxSelectTypeOfAnswer" HorizontalAlignment="Left" Height="20" Margin="264,4,0,0" VerticalAlignment="Top" Width="183" Visibility="Visible"  SelectionChanged="ComboBoxSelectTypeOfAnswer_SelectionChanged">
+                <ComboBoxItem Content="One answer question"/>
+                <ComboBoxItem Content="Several answer question"/>
+                <ComboBoxItem Content="Sort answer question"/>
+                <ComboBoxItem Content="Open answer question"/>
+            </ComboBox>
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="368" Margin="0,-30,0,0" VerticalAlignment="Top" Width="182">
-            <Button x:Name="ButtonTestCreator" Content="Test creator" Margin="31,90,29,235" Click="ButtonTestCreator_Click"/>
-            <Button Content="Poll creator" Margin="31,138,29,189"/>
-            <Button Content="Tests" Margin="19,218,20,105"/>
-            <Button Content="Users" Margin="19,268,20,53"/>
-            <Button x:Name="ButtonTGCheckChat" Content="TGCheckChat" Margin="22,184,29,155" Click="ButtonTGCheckChat_Click"/>
+        <Grid HorizontalAlignment="Left" Height="385" VerticalAlignment="Center" Width="182">
+            <Button x:Name="ButtonTestCreator" Content="Test creator" Margin="31,10,29,315" Click="ButtonTestCreator_Click"/>
+            <Button x:Name="ButtonPollCreator" Content="Poll creator" Margin="31,75,29,252" Click="ButtonPollCreator_Click"/>
+            <Button x:Name="ButtonTestsAndPolls" Content="Tests and Polls" Margin="31,201,29,122" Click="ButtonTestsAndPolls_Click"/>
+            <Button x:Name="ButtonUsers" Content="Users" Margin="31,268,29,53"/>
+            <Button x:Name="ButtonTGCheckChat" Content="TGCheckChat" Margin="31,138,29,189" Click="ButtonTGCheckChat_Click"/>
+        </Grid>
+        <Grid x:Name="GridTests" HorizontalAlignment="Left" Height="437" Margin="182,47,0,0" VerticalAlignment="Top" Width="598" RenderTransformOrigin="0.492,0.513" Grid.ColumnSpan="2" Visibility="Hidden"
+              >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <ComboBox x:Name="ComboBoxChoiseTheTest" HorizontalAlignment="Left" Height="58" Margin="163,35,0,0" VerticalAlignment="Top" Width="111" DisplayMemberPath="">
+                <Button Content="Test1" IsDefault="True"/>
+            </ComboBox>
+            <TextBox x:Name="TextBoxTests" HorizontalAlignment="Left" Height="326" Margin="15,101,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="259"/>
+            <Label x:Name="LabelChooseTest" Content="Choose a Test" HorizontalAlignment="Left" Height="31" Margin="15,35,0,0" VerticalAlignment="Top" Width="132" FontSize="16" FontWeight="Bold"/>
+            <ComboBox x:Name="ComboBoxChoiseThePoll" HorizontalAlignment="Left" Height="58" Margin="457,35,0,0" VerticalAlignment="Top" Width="111" DisplayMemberPath="">
+                <Button Content="Poll1"/>
+            </ComboBox>
+            <Label x:Name="LabelChoosePoll" Content="Choose a Poll" HorizontalAlignment="Left" Height="31" Margin="309,35,0,0" VerticalAlignment="Top" Width="129" FontSize="18" FontWeight="Bold"/>
+            <TextBox x:Name="TextBoxPolls" HorizontalAlignment="Left" Height="326" Margin="309,101,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="259"/>
+            <Button x:Name="ButtonRedactTest" Content="Redact Test" HorizontalAlignment="Left" Height="25" Margin="15,68,0,0" VerticalAlignment="Top" Width="132"/>
+            <Button x:Name="ButtonRedactPoll" Content="Redact Poll" HorizontalAlignment="Left" Height="22" Margin="309,71,0,0" VerticalAlignment="Top" Width="129"/>
+        </Grid>
+        <Grid x:Name="GridPollCreator" HorizontalAlignment="Left" Height="351" Margin="222,58,0,0" VerticalAlignment="Top" Width="574" Visibility="Hidden" Grid.ColumnSpan="2">
+            <TextBox x:Name="TextBoxNameOfPoll" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="206" Margin="5,4,0,0" Text="Enter name of poll"/>
+            <TextBox x:Name="TextBoxTextOfPoll" TextWrapping="Wrap" Text="Enter text of Poll" Margin="5,30,127,279"/>
+            <Button x:Name="ButtonAddVariant" Content="add variant" HorizontalAlignment="Left" Height="38" Margin="357,110,0,0" VerticalAlignment="Top" Width="90"/>
+            <TextBox x:Name="TextBoxVariantsOfPoll" HorizontalAlignment="Left" Height="22" Margin="5,83,0,0" TextWrapping="Wrap" Text="Enter variants of poll" VerticalAlignment="Top" Width="442"/>
+            <WrapPanel x:Name="WrapPanelAnswers1" HorizontalAlignment="Left" Height="119" Margin="5,110,0,0" VerticalAlignment="Top" Width="347" Orientation="Vertical"/>
+            <Button x:Name="ButtonCreatePoll" Content="CREATE POLL" HorizontalAlignment="Left" Height="46" Margin="357,0,0,0" VerticalAlignment="Center" Width="90" FontSize="12" Click="ButtonCreatePoll_Click"/>
         </Grid>
     </Grid>
 </Window>
