@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TestMe.BLL
 {
-    public class SortAnswersQuestion : AbstractQuestion
+    public class SortAnswersQuestion : AbstractQuestion // Юзер распологает ответы в правильном порядке
     {
     }
 }

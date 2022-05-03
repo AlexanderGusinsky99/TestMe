@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace TestMe.BLL
 {
-    public class OneAnswerQuestion : AbstractQuestion
+    public class OneAnswerQuestion : AbstractQuestion // Выбор одного ответа
     {
         //Поля или свойства? Пока не ясно, главное, чтобы работало, но потом поправить нужно обязательно
         public string TextOfQuestion { get; set; }
-        public List<string> _listOfAnswers;
         public int _indexOfRightAnswer;
         public OneAnswerQuestion(string textOfQuestion, List<string> listOfAnswers, int indexOfRightAnswer)
         {
@@ -18,5 +17,11 @@ namespace TestMe.BLL
             List<string> _listOfAnswers = listOfAnswers;
             _indexOfRightAnswer = indexOfRightAnswer;
         }
+        public OneAnswerQuestion()
+        {
+
+        }
+
+
     }
 }
