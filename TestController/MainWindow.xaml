@@ -52,9 +52,9 @@
         </Grid>
         <Grid HorizontalAlignment="Left" Height="497" VerticalAlignment="Top" Width="170">
             <Button x:Name="ButtonTestCreator" Content="Test creator" Margin="0,81,0,341" Click="ButtonTestCreator_Click" RenderTransformOrigin="0.494,0.515" Background="#FF7A3065" BorderBrush="#00000000" Foreground="White" FontSize="16" HorizontalAlignment="Center" Width="170"/>
-            <Button Content="Poll creator" Margin="0,156,0,266" Background="#FF7A3065" BorderBrush="{x:Null}" Foreground="White" FontSize="16" HorizontalAlignment="Center" Width="170" Click="ButtonPollCreator_Click"/>
+            <Button x:Name="ButtonPollCreator" Content="Poll creator" Margin="0,156,0,266" Background="#FF7A3065" BorderBrush="{x:Null}" Foreground="White" FontSize="16" HorizontalAlignment="Center" Width="170" Click="ButtonPollCreator_Click"/>
             <Button x:Name="ButtonTestsAndPolls" Content="Tests and Polls" Margin="26,306,0,115" Background="#FF7A3065" BorderBrush="{x:Null}" Foreground="White" FontSize="16" AutomationProperties.IsOffscreenBehavior="Onscreen" Click="ButtonTestsAndPolls_Click"/>
-            <Button Content="Users" Margin="0,380,0,41" Background="#FF7A3065" BorderBrush="{x:Null}" Foreground="#FFF3EEEE" FontSize="16" HorizontalAlignment="Left" Width="175"/>
+            <Button x:Name="ButtonUsers" Content="Users" Margin="0,380,0,41" Background="#FF7A3065" BorderBrush="{x:Null}" Foreground="#FFF3EEEE" FontSize="16" HorizontalAlignment="Left" Width="175"/>
             <Button x:Name="ButtonTGCheckChat" Content="   TGCheckChat" Margin="0,231,0,191" Click="ButtonTGCheckChat_Click" Background="#FF7A3065" BorderBrush="{x:Null}" Foreground="White" FontSize="16" FontWeight="Regular" FontStyle="Normal" HorizontalAlignment="Left" Width="175"/>
             <Image x:Name="TG_icon" HorizontalAlignment="Left" Height="30" Margin="8,254,0,0" VerticalAlignment="Top" Width="32" Source="/Images/chat_icon.png"/>
             <Image x:Name="Test_icon1" HorizontalAlignment="Left" Height="32" Margin="8,328,0,0" VerticalAlignment="Top" Width="32" Source="/Images/folder_document_multimedia_icon.png"/>
