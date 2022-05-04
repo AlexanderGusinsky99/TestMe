@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TestController"
         mc:Ignorable="d"
-        Title="MainWindow" Height="472" Width="819">
+        Title="MainWindow" Height="494" Width="839"> 
     <Grid Height="480" VerticalAlignment="Top">
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
