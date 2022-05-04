@@ -45,11 +45,9 @@
             <TextBox x:Name="TextBoxTextOfAnswer" HorizontalAlignment="Left" Height="34" Margin="37,119,0,0" TextWrapping="Wrap" Text="Enter text of answer" VerticalAlignment="Top" Width="442" PreviewMouseDown="TextBoxTextOfAnswer_PreviewMouseDown" FontSize="14"/>
             <WrapPanel x:Name="WrapPanelAnswers" HorizontalAlignment="Left" Height="119" Margin="5,110,0,0" VerticalAlignment="Top" Width="347" Orientation="Vertical"/>
             <Button x:Name="ButtonCreateTest" Content="CREATE TEST" HorizontalAlignment="Left" Height="30" Margin="500,311,0,0" VerticalAlignment="Top" Width="90" Click="ButtonCreateTest_Click" FontSize="12" Background="#FF7A3065" Foreground="White"/>
-        </Grid>
-
-        <Grid Margin="0,0,0,-6">
-
-            <Grid.ColumnDefinitions>
+        
+    <Grid Margin="0,0,0,-6">
+        <Grid.ColumnDefinitions>
             <ColumnDefinition Width="410*"/>
             <ColumnDefinition Width="409*"/>
         </Grid.ColumnDefinitions>
@@ -93,10 +91,8 @@
             <Button x:Name="ButtonRedactTest" Content="Redact Test" HorizontalAlignment="Left" Height="25" Margin="15,68,0,0" VerticalAlignment="Top" Width="132"/>
             <Button x:Name="ButtonRedactPoll" Content="Redact Poll" HorizontalAlignment="Left" Height="22" Margin="309,71,0,0" VerticalAlignment="Top" Width="129"/>
         </Grid>
-
-            <Grid HorizontalAlignment="Left" Height="497" VerticalAlignment="Top" Width="170">
-
-                <Button x:Name="ButtonTestCreator" Content="Test creator" Margin="0,81,0,341" Click="ButtonTestCreator_Click" RenderTransformOrigin="0.494,0.515" Background="#FF7A3065" BorderBrush="#00000000" Foreground="White" FontSize="16" HorizontalAlignment="Center" Width="170"/>
+        <Grid HorizontalAlignment="Left" Height="497" VerticalAlignment="Top" Width="170">
+            <Button x:Name="ButtonTestCreator" Content="Test creator" Margin="0,81,0,341" Click="ButtonTestCreator_Click" RenderTransformOrigin="0.494,0.515" Background="#FF7A3065" BorderBrush="#00000000" Foreground="White" FontSize="16" HorizontalAlignment="Center" Width="170"/>
             <Button Content="Poll creator" Margin="0,156,0,266" Background="#FF7A3065" BorderBrush="{x:Null}" Foreground="White" FontSize="16" HorizontalAlignment="Center" Width="170"/>
             <Button Content="Tests and Polls" Margin="26,306,0,115" Background="#FF7A3065" BorderBrush="{x:Null}" Foreground="White" FontSize="16" AutomationProperties.IsOffscreenBehavior="Onscreen"/>
             <Button Content="Users" Margin="0,380,0,41" Background="#FF7A3065" BorderBrush="{x:Null}" Foreground="#FFF3EEEE" FontSize="16" HorizontalAlignment="Left" Width="175"/>
@@ -106,9 +102,7 @@
             <Image x:Name="Users_icon" HorizontalAlignment="Left" Height="28" Margin="12,404,0,0" VerticalAlignment="Top" Width="28" Source="/Images/users_people_icon.png"/>
             <Image HorizontalAlignment="Left" Height="32" Margin="8,178,0,0" VerticalAlignment="Top" Width="30" Source="/Images/poll_icon.png"/>
             <Image x:Name="TG_icon_Copy" HorizontalAlignment="Left" Height="30" Margin="8,104,0,0" VerticalAlignment="Top" Width="32" Source="/Images/document_icon.png"/>
-
-            </Grid>
-            <Grid x:Name="GridPollCreator" HorizontalAlignment="Left" Height="351" Margin="222,58,0,0" VerticalAlignment="Top" Width="574" Visibility="Hidden" Grid.ColumnSpan="2">
+        <Grid x:Name="GridPollCreator" HorizontalAlignment="Left" Height="351" Margin="222,58,0,0" VerticalAlignment="Top" Width="574" Visibility="Hidden" Grid.ColumnSpan="2">
             <TextBox x:Name="TextBoxNameOfPoll" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="206" Margin="5,4,0,0" Text="Enter name of poll"/>
             <TextBox x:Name="TextBoxTextOfPoll" TextWrapping="Wrap" Text="Enter text of Poll" Margin="5,30,127,279"/>
             <Button x:Name="ButtonAddVariant" Content="add variant" HorizontalAlignment="Left" Height="38" Margin="357,110,0,0" VerticalAlignment="Top" Width="90"/>
@@ -117,6 +111,5 @@
             <Button x:Name="ButtonCreatePoll" Content="CREATE POLL" HorizontalAlignment="Left" Height="46" Margin="357,0,0,0" VerticalAlignment="Center" Width="90" FontSize="12" Click="ButtonCreatePoll_Click"/>
         </Grid>
         <Image x:Name="LogoImage" HorizontalAlignment="Left" Height="52" VerticalAlignment="Top" Width="160" Source="/Images/LOGO5-removebg-preview.png" Margin="10,28,0,0" RenderTransformOrigin="0.5,0.646"/>
-    </Grid>
     </Grid>
 </Window>
