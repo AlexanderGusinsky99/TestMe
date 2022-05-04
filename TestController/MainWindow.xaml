@@ -35,7 +35,7 @@
             <ColumnDefinition Width="410*"/>
             <ColumnDefinition Width="409*"/>
         </Grid.ColumnDefinitions>
-        <Grid x:Name="GridTestCreator" HorizontalAlignment="Left" Height="351" Margin="222,58,0,0" VerticalAlignment="Top" Width="574" Visibility="Visible" Grid.ColumnSpan="2">
+        <Grid x:Name="GridTestCreator" HorizontalAlignment="Left" Height="351" Margin="222,58,0,0" VerticalAlignment="Top" Width="574" Visibility="Hidden" Grid.ColumnSpan="2">
             <TextBox x:Name="TextBoxNameOfTest" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="254" Margin="5,5,0,0" Text="Enter name of test" PreviewMouseDown="TextBoxNameOfTest_PreviewMouseDown" Visibility="Visible"/>
             <Button x:Name="ButtonAddQuestion" Content="add question" Margin="357,170,127,141" Click="ButtonAddQuestion_Click" Visibility="Visible"/>
             <TextBox x:Name="TextBoxTextOfQuestion" TextWrapping="Wrap" Text="Enter text of question" Margin="5,30,127,279" PreviewMouseDown="TextBoxTextOfQuestion_PreviewMouseDown" Visibility="Visible"/>
@@ -81,12 +81,12 @@
             <Button x:Name="ButtonRedactTest" Content="Redact Test" HorizontalAlignment="Left" Height="25" Margin="15,68,0,0" VerticalAlignment="Top" Width="132"/>
             <Button x:Name="ButtonRedactPoll" Content="Redact Poll" HorizontalAlignment="Left" Height="22" Margin="309,71,0,0" VerticalAlignment="Top" Width="129"/>
         </Grid>
-        <Grid x:Name="GridPollCreator" HorizontalAlignment="Left" Height="351" Margin="222,58,0,0" VerticalAlignment="Top" Width="574" Visibility="Hidden" Grid.ColumnSpan="2">
-            <TextBox x:Name="TextBoxNameOfPoll" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="206" Margin="5,4,0,0" Text="Enter name of poll"/>
-            <TextBox x:Name="TextBoxTextOfPoll" TextWrapping="Wrap" Text="Enter text of Poll" Margin="5,30,127,279"/>
-            <Button x:Name="ButtonAddVariant" Content="add variant" HorizontalAlignment="Left" Height="38" Margin="357,110,0,0" VerticalAlignment="Top" Width="90"/>
-            <TextBox x:Name="TextBoxVariantsOfPoll" HorizontalAlignment="Left" Height="22" Margin="5,83,0,0" TextWrapping="Wrap" Text="Enter variants of poll" VerticalAlignment="Top" Width="442"/>
-            <WrapPanel x:Name="WrapPanelAnswers1" HorizontalAlignment="Left" Height="119" Margin="5,110,0,0" VerticalAlignment="Top" Width="347" Orientation="Vertical"/>
+        <Grid x:Name="GridPollCreator" HorizontalAlignment="Left" Height="351" Margin="222,58,0,0" VerticalAlignment="Top" Width="574" Visibility="Visible" Grid.ColumnSpan="2">
+            <TextBox x:Name="TextBoxNameOfPoll" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="206" Margin="5,4,0,0" Text="Enter name of poll" PreviewMouseDown="TextBoxNameOfPoll_PreviewMouseDown"/>
+            <TextBox x:Name="TextBoxTextOfPoll" TextWrapping="Wrap" Text="Enter text of Poll" Margin="5,30,127,279" PreviewMouseDown="TextBoxTextOfPoll_PreviewMouseDown"/>
+            <Button x:Name="ButtonAddVariant" Content="add variant" HorizontalAlignment="Left" Height="38" Margin="357,110,0,0" VerticalAlignment="Top" Width="90" Click="ButtonAddVariant_Click"/>
+            <TextBox x:Name="TextBoxVariantsOfPoll" HorizontalAlignment="Left" Height="22" Margin="5,83,0,0" TextWrapping="Wrap" Text="Enter variants of poll" VerticalAlignment="Top" Width="442" PreviewMouseDown="TextBoxVariantsOfPoll_PreviewMouseDown"/>
+            <WrapPanel x:Name="WrapPanelVariants" HorizontalAlignment="Left" Height="119" Margin="5,110,0,0" VerticalAlignment="Top" Width="347" Orientation="Vertical"/>
             <Button x:Name="ButtonCreatePoll" Content="CREATE POLL" HorizontalAlignment="Left" Height="46" Margin="357,0,0,0" VerticalAlignment="Center" Width="90" FontSize="12" Click="ButtonCreatePoll_Click"/>
         </Grid>
     </Grid>

@@ -24,12 +24,16 @@ namespace TestController
     {
         public const string _defaultQuestionText = "Enter text of question";
         public const string _defaultAnswerText = "Enter text of answer";
-        public List<string> _crntAnswers = new List<string>();
-        public List<AbstractQuestion> _crntQuestions = new List<AbstractQuestion>();
-        public AbstractQuestion _crntQuestion;
+        public const string _defaultVariant = "Enter text of variant";
+        public List<string> _crntTestAnswers = new List<string>();
+        public List<string> _crntPollAnswers = new List<string>();
+        public List<AbstractQuestion> _crntTestQuestions = new List<AbstractQuestion>();
+        public List<AbstractQuestion> _crntPollQuestions = new List<AbstractQuestion>();
+        public AbstractQuestion _crntTestQuestion;
+        public AbstractQuestion _crntPollQuestion;
         public int _indexOfRigthAnswer = -1;
         private List<Test> _listOfTests = new List<Test>();
-        //private List<Poll> _listOfPolls = new List<Poll>(); Добавить лист Опросников
+        private List<Poll> _listOfPolls = new List<Poll>(); 
         private TelegramBot _telegramBot;
         private const string _token = "5214418897:AAGMzUpDI8mf2cVJ0S7kFGa_QheT0LYonMQ";
         private DispatcherTimer _timer;
@@ -40,9 +44,9 @@ namespace TestController
         private void ButtonCreateTest_Click(object sender, RoutedEventArgs e)
         {
             string nameOfTest = TextBoxNameOfTest.Text;
-            _listOfTests.Add(new Test(nameOfTest, _crntQuestions));
+            _listOfTests.Add(new Test(nameOfTest, _crntTestQuestions));
             TextBoxNameOfTest.Text = "Enter name of test";
-            _crntQuestions = new List<AbstractQuestion>();
+            _crntTestQuestions = new List<AbstractQuestion>();
             WrapPanelAnswers.Children.Clear();
             TextBoxTextOfQuestion.Text = _defaultQuestionText;
             _answerCounter = 1;
@@ -64,11 +68,11 @@ namespace TestController
 
         private void ButtonAddQuestion_Click(object sender, RoutedEventArgs e)
         {
-            if (_crntQuestion != null && string.IsNullOrEmpty(TextBoxTextOfQuestion.Text) && TextBoxTextOfQuestion.Text != _defaultQuestionText)
+            if (_crntTestQuestion != null && string.IsNullOrEmpty(TextBoxTextOfQuestion.Text) && TextBoxTextOfQuestion.Text != _defaultQuestionText)
             {
-                _crntQuestion.TextOfQuestion = TextBoxTextOfQuestion.Text;
-                _crntQuestion.ListOfAnswers = _crntAnswers;
-                _crntQuestions.Add(_crntQuestion);
+                _crntTestQuestion.TextOfQuestion = TextBoxTextOfQuestion.Text;
+                _crntTestQuestion.ListOfAnswers = _crntTestAnswers;
+                _crntTestQuestions.Add(_crntTestQuestion);
 
             }
 
@@ -91,7 +95,7 @@ namespace TestController
                 Label answer = new Label();
                 answer.Content = $"{_answerCounter}. {TextBoxTextOfAnswer.Text}";
                 string answerText = TextBoxTextOfAnswer.Text;
-                _crntAnswers.Add(answerText);
+                _crntTestAnswers.Add(answerText);
                 TextBoxTextOfAnswer.Text = _defaultAnswerText;
                 _answerCounter++;
                 WrapPanelAnswers.Children.Add(answer);
@@ -150,7 +154,13 @@ namespace TestController
 
         private void ButtonCreatePoll_Click(object sender, RoutedEventArgs e)
         {
-
+            string nameOfPoll = TextBoxNameOfPoll.Text;
+            _listOfPolls.Add(new Poll(nameOfPoll, _crntPollQuestions));
+            TextBoxNameOfPoll.Text = "Enter name of Poll";
+            _crntPollQuestions = new List<AbstractQuestion>();
+            WrapPanelVariants.Children.Clear();
+            TextBoxVariantsOfPoll.Text = _defaultVariant;
+            _variantCounter = 1;
         }
 
         
@@ -164,29 +174,82 @@ namespace TestController
             switch (ComboBoxSelectTypeOfAnswer.SelectedIndex)
             {
                 case 0:
-                    _crntQuestion = new OneAnswerQuestion();
+                    _crntTestQuestion = new OneAnswerQuestion();
                     ButtonAddAnswer.Visibility = Visibility.Visible;
                     WrapPanelAnswers.Visibility = Visibility.Visible;
                     break;
                 case 1:
-                    _crntQuestion = new SeveralAnswersQuestion();
+                    _crntTestQuestion = new SeveralAnswersQuestion();
                     ButtonAddAnswer.Visibility = Visibility.Visible;
                     break;
                 case 2:
-                    _crntQuestion = new SortAnswersQuestion();
+                    _crntTestQuestion = new SortAnswersQuestion();
                     ButtonAddAnswer.Visibility = Visibility.Visible;
                     break;
                 case 3:
-                    _crntQuestion = new OpenAnswerQuestion();
+                    _crntTestQuestion = new OpenAnswerQuestion();
                     WrapPanelAnswers.Visibility = Visibility.Hidden;
                     ButtonAddAnswer.Visibility = Visibility.Hidden;
                     break;
                 default:
-                    _crntQuestion = new OneAnswerQuestion();
+                    _crntTestQuestion = new OneAnswerQuestion();
 
                     break;
             }
-            _crntQuestion.TextOfQuestion = TextBoxTextOfQuestion.Text;
+            _crntTestQuestion.TextOfQuestion = TextBoxTextOfQuestion.Text;
+        }
+
+
+        private int _textBoxNameOfPoll_PreviewMouseDown_Counter = 0;
+        private void TextBoxNameOfPoll_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (_textBoxNameOfPoll_PreviewMouseDown_Counter == 0)
+            {
+                TextBoxNameOfPoll.Clear();
+                _textBoxNameOfPoll_PreviewMouseDown_Counter += 1;
+            }
+        }
+
+        
+        
+           
+        private int _textBoxTextOfPoll_PreviewMouseDown_Counter = 0;
+        private void TextBoxTextOfPoll_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (_textBoxTextOfPoll_PreviewMouseDown_Counter == 0)
+            {
+                TextBoxTextOfPoll.Clear();
+                _textBoxTextOfPoll_PreviewMouseDown_Counter += 1;
+            }
+        }
+
+        private int TextBoxVariantsOfPoll_PreviewMouseDown_Counter = 0;
+        private void TextBoxVariantsOfPoll_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (TextBoxVariantsOfPoll_PreviewMouseDown_Counter == 0)
+            {
+                TextBoxVariantsOfPoll.Clear();
+                TextBoxVariantsOfPoll_PreviewMouseDown_Counter += 1;
+            }
+        }
+
+        private int _variantCounter = 1;
+        private void ButtonAddVariant_Click(object sender, RoutedEventArgs e)
+        {
+            if (TextBoxVariantsOfPoll.Text != "" && TextBoxVariantsOfPoll.Text != _defaultVariant)
+            {
+                Label variant = new Label();
+                variant.Content = $"{_variantCounter}. {TextBoxVariantsOfPoll.Text}";
+                string variantText = TextBoxVariantsOfPoll.Text;
+                _crntPollAnswers.Add(variantText);
+                TextBoxVariantsOfPoll.Text = _defaultVariant;
+                _variantCounter++;
+                WrapPanelVariants.Children.Add(variant);
+                TextBoxVariantsOfPoll_PreviewMouseDown_Counter = 0;
+            }
+
+
         }
     }
+    
 }

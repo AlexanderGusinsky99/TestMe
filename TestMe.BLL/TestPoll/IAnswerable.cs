@@ -10,6 +10,6 @@ namespace TestMe.BLL
     {
         public string Name { get; set; }
         public void SetName(string name);
-        public void AddQuestion(AbstractQuestion quetion);
+        public void AddQuestion(AbstractQuestion question);
     }
 }
