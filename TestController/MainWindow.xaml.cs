@@ -53,6 +53,7 @@ namespace TestController
             GridTests.Visibility = Visibility.Hidden;
             GridPollCreator.Visibility = Visibility.Hidden;
             GridTestCreator.Visibility = Visibility.Visible;
+
         }
         private void ButtonTGCheckChat_Click(object sender, RoutedEventArgs e)
         {
