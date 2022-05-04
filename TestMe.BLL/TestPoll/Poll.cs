@@ -8,14 +8,14 @@ namespace TestMe.BLL
 {
     public class Poll : IAnswerable
     {
-        private List<AbstractQuestion> _listOfQuestions;
+        private List<AbstractQuestion> _listOfPolls;
         private int Length = 0;
         public string Name { get; set; }
 
         public Poll(string nameOfPoll, List<AbstractQuestion> listOfQuestions)
         {
             Name = nameOfPoll;
-            _listOfQuestions = listOfQuestions;
+            _listOfPolls = listOfQuestions;
         }
 
 
@@ -23,8 +23,10 @@ namespace TestMe.BLL
         {
             Name = nameOfPoll;
         }
-        public void AddQuestion(AbstractQuestion question)
+        public void AddQuestion(AbstractQuestion pollQuestion)
         {
+            _listOfPolls.Add(pollQuestion);
+            Length++;
         }
     }
 }
