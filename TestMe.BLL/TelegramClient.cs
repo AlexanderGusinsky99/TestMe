@@ -11,12 +11,22 @@ namespace TestMe.BLL
     {
         private TelegramBotClient _client;
         private Action<string> _onMessage;
-        private List<long> _userIDs;
+        private LinkedList<long> _chatIDS = new LinkedList<long>();
+        public List<string> ConnectedUsers = new List<string>();
+        public List<TestMe.BLL.UserMe> ListOfUsers = new List<TestMe.BLL.UserMe>();
+
         public TelegramClient(string token, Action<string> onMessage)
         {
             _client = new TelegramBotClient(token);
             _onMessage = onMessage;
-            _userIDs = new List<long>();
+        }
+        public async void Send(string message)
+        {
+            foreach (var chatID in _chatIDS)
+            {
+                _client.SendTextMessageAsync(new ChatId(chatID), message);
+
+            }
         }
         public void Start()
         {
@@ -24,20 +34,31 @@ namespace TestMe.BLL
         }
         private async Task HandleResive(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
         {
-            if (update.Message != null && update.Message.Text != null) 
+            if (!(_chatIDS.Contains(update.Message.Chat.Id)))
             {
-                if (!_userIDs.Contains(update.Message.Chat.Id))
-                {
-                    _userIDs.Add(update.Message.Chat.Id);
-                }
+                TestMe.BLL.UserMe user = new TestMe.BLL.UserMe(update.Message.From.FirstName,
+                update.Message.From.LastName,
+                update.Message.From.Id);
+                ListOfUsers.Add(user);
+                _chatIDS.AddLast(update.Message.Chat.Id);
+                string userName = update.Message.From.FirstName + update.Message.From.LastName;
+                ConnectedUsers.Add(userName);
             }
-            string userNameAndTextMessage = $"{update.Message.Chat.Id} {update.Message.Chat.FirstName} {update.Message.Chat.LastName}" +
-                $"{update.Message.Text}";
-            _onMessage(userNameAndTextMessage);
+            if (update.Message != null && update.Message.Text != null)
+            {
+                string crntMessage = update.Message.Text;
+                _onMessage(crntMessage);
+            }
+            else if (update.CallbackQuery != null)
+            {
+                string crntMessage = update.CallbackQuery.Data;
+                _onMessage(crntMessage);
+            }
         }
         private Task HandleError(ITelegramBotClient botClient, Exception exception, CancellationToken cancellationToken)
-        { 
+        {
             return Task.CompletedTask;
         }
+
     }
 }

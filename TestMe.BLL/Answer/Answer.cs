@@ -10,5 +10,12 @@ namespace TestMe.BLL.Answer
     {
         public string TextOfAnswer { get; set; }
         public long Id { get; set; }
+        public Answer()
+        { }
+        public Answer(string textOfAnswer)
+        {
+            TextOfAnswer = textOfAnswer;
+        }
+
     }
 }

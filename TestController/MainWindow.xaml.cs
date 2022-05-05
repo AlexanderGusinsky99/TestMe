@@ -34,12 +34,14 @@ namespace TestController
         public int _indexOfRigthAnswer = -1;
         private List<Test> _listOfTests = new List<Test>();
         private List<Poll> _listOfPolls = new List<Poll>(); 
-        private TelegramClient _telegramBot;
+        private TelegramClient _telegramClient;
         private const string _token = "5214418897:AAGMzUpDI8mf2cVJ0S7kFGa_QheT0LYonMQ";
+        List<string> _messageSourse;
         private DispatcherTimer _timer;
         public MainWindow()
         {
             InitializeComponent();
+
         }
         private void ButtonCreateTest_Click(object sender, RoutedEventArgs e)
         {
