@@ -147,6 +147,7 @@
             </TextBox>
             
             <Button x:Name="ButtonCreatePoll" Content="CREATE POLL" HorizontalAlignment="Left" Height="46" Margin="467,292,0,0" VerticalAlignment="Top" Width="90" FontSize="12" Click="ButtonCreatePoll_Click" Background="#FF7A3065" Foreground="White"/>
+            <WrapPanel x:Name="WrapPanelVariant" HorizontalAlignment="Left" Height="170" Margin="10,175,0,0" VerticalAlignment="Top" Width="442"/>
         </Grid>
     </Grid>
 </Window>
