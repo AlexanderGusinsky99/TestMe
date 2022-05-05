@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TestController"
         mc:Ignorable="d"
-        Title="MainWindow" Height="490" Width="819">
+        Title="MainWindow" Height="494" Width="839"> 
     <Grid Height="480" VerticalAlignment="Top">
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -30,20 +30,45 @@
                 <GradientStop Color="#FF975D86" Offset="0.013"/>
             </LinearGradientBrush>
         </Grid.Background>
-        
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="410*"/>
             <ColumnDefinition Width="409*"/>
         </Grid.ColumnDefinitions>
-        <Grid x:Name="GridTestCreator" HorizontalAlignment="Left" Height="351" Margin="222,58,0,0" VerticalAlignment="Top" Width="574" Visibility="Hidden" Grid.ColumnSpan="2">
-            <TextBox x:Name="TextBoxNameOfTest" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="254" Margin="5,5,0,0" Text="Enter name of test" PreviewMouseDown="TextBoxNameOfTest_PreviewMouseDown" Visibility="Visible"/>
-            <Button x:Name="ButtonAddQuestion" Content="add question" Margin="357,170,127,141" Click="ButtonAddQuestion_Click" Visibility="Visible"/>
-            <TextBox x:Name="TextBoxTextOfQuestion" TextWrapping="Wrap" Text="Enter text of question" Margin="5,30,127,279" PreviewMouseDown="TextBoxTextOfQuestion_PreviewMouseDown" Visibility="Visible"/>
-            <Button x:Name="ButtonAddAnswer" Content="add answer" HorizontalAlignment="Left" Height="44" Margin="357,121,0,0" VerticalAlignment="Top" Width="90" Click="ButtonAddAnswer_Click" Visibility="Visible"/>
-            <TextBox x:Name="TextBoxTextOfAnswer" HorizontalAlignment="Left" Height="22" Margin="5,83,0,0" TextWrapping="Wrap" Text="Enter text of answer" VerticalAlignment="Top" Width="442" PreviewMouseDown="TextBoxTextOfAnswer_PreviewMouseDown" Visibility="Visible"/>
-            <WrapPanel x:Name="WrapPanelAnswers" HorizontalAlignment="Left" Height="119" Margin="5,110,0,0" VerticalAlignment="Top" Width="347" Orientation="Vertical" Visibility="Hidden"/>
-            <Button x:Name="ButtonCreateTest" Content="CREATE TEST" HorizontalAlignment="Left" Height="48" Margin="357,219,0,0" VerticalAlignment="Top" Width="90" Click="ButtonCreateTest_Click" FontSize="12" Visibility="Visible"/>
-            <ComboBox x:Name="ComboBoxSelectTypeOfAnswer" HorizontalAlignment="Left" Height="20" Margin="264,4,0,0" VerticalAlignment="Top" Width="183" Visibility="Visible"  SelectionChanged="ComboBoxSelectTypeOfAnswer_SelectionChanged">
+        <Grid x:Name="GridTestCreator" HorizontalAlignment="Left" Margin="222,58,0,49" Width="574" Visibility="Hidden" Grid.ColumnSpan="2">
+            <Grid.Background>
+                <SolidColorBrush Color="#FFECDAE6" Opacity="0.5"/>
+            </Grid.Background>
+            <TextBox x:Name="TextBoxNameOfTest" HorizontalAlignment="Left" Height="25" TextWrapping="Wrap" VerticalAlignment="Top" Width="254" Margin="10,24,0,0" Text="Enter name of test" PreviewMouseDown="TextBoxNameOfTest_PreviewMouseDown" Visibility="Visible">
+                <TextBox.Background>
+                    <SolidColorBrush Color="White" Opacity="0.7"/>
+                </TextBox.Background>
+            </TextBox>
+            <Button x:Name="ButtonAddQuestion" Content="add question" Margin="465,103,19,245" Click="ButtonAddQuestion_Click" Visibility="Visible" Background="#FF7A3065" Foreground="#FFF9F9F9"/>
+            <TextBox x:Name="TextBoxTextOfQuestion" TextWrapping="Wrap" Text="Enter text of question" Margin="10,66,122,246" PreviewMouseDown="TextBoxTextOfQuestion_PreviewMouseDown" Visibility="Visible">
+                <TextBox.Background>
+                    <SolidColorBrush Color="White" Opacity="0.7"/>
+                </TextBox.Background>
+            </TextBox>
+            <Button x:Name="ButtonAddAnswer" Content="add answer" HorizontalAlignment="Left" Height="25" Margin="465,143,0,0" VerticalAlignment="Top" Width="90" Click="ButtonAddAnswer_Click" Visibility="Visible" Background="#FF7A3065" Foreground="#FFF9F8F8"/>
+            <TextBox x:Name="TextBoxTextOfAnswer" HorizontalAlignment="Left" Height="25" Margin="10,143,0,0" TextWrapping="Wrap" Text="Enter text of answer" VerticalAlignment="Top" Width="442" PreviewMouseDown="TextBoxTextOfAnswer_PreviewMouseDown" Visibility="Visible">
+                <TextBox.Background>
+                    <SolidColorBrush Color="White" Opacity="0.7"/>
+                </TextBox.Background>
+            </TextBox>
+            <WrapPanel x:Name="WrapPanelAnswers" HorizontalAlignment="Left" Height="170" Margin="10,186,0,0" VerticalAlignment="Top" Width="442" Orientation="Vertical" Visibility="Hidden">
+                <WrapPanel.Background>
+                    <SolidColorBrush Color="White" Opacity="0.7"/>
+                </WrapPanel.Background>
+            </WrapPanel>
+            <Button x:Name="ButtonCreateTest" Content="CREATE TEST" HorizontalAlignment="Left" Height="48" Margin="465,308,0,0" VerticalAlignment="Top" Width="90" Click="ButtonCreateTest_Click" FontSize="12" Visibility="Visible" Background="#FF7A3065" Foreground="White"/>
+            <ComboBox x:Name="ComboBoxSelectTypeOfAnswer" HorizontalAlignment="Left" Height="25" Margin="269,24,0,0" VerticalAlignment="Top" Width="183" Visibility="Visible"  SelectionChanged="ComboBoxSelectTypeOfAnswer_SelectionChanged">
+                <ComboBox.Background>
+                    <LinearGradientBrush EndPoint="0,1" Opacity="0.7">
+                        <GradientStop Color="#FFF0F0F0"/>
+                        <GradientStop Color="#FFE5E5E5" Offset="1"/>
+                    </LinearGradientBrush>
+                </ComboBox.Background>
                 <ComboBoxItem Content="One answer question"/>
                 <ComboBoxItem Content="Several answer question"/>
                 <ComboBoxItem Content="Sort answer question"/>
@@ -53,7 +78,7 @@
         <Grid HorizontalAlignment="Left" Height="497" VerticalAlignment="Top" Width="170">
             <Button x:Name="ButtonTestCreator" Content="Test creator" Margin="0,81,0,341" Click="ButtonTestCreator_Click" RenderTransformOrigin="0.494,0.515" Background="#FF7A3065" BorderBrush="#00000000" Foreground="White" FontSize="16" HorizontalAlignment="Center" Width="170"/>
             <Button x:Name="ButtonPollCreator" Content="Poll creator" Margin="0,156,0,266" Background="#FF7A3065" BorderBrush="{x:Null}" Foreground="White" FontSize="16" HorizontalAlignment="Center" Width="170" Click="ButtonPollCreator_Click"/>
-            <Button x:Name="ButtonTestsAndPolls" Content="Tests and Polls" Margin="26,306,0,115" Background="#FF7A3065" BorderBrush="{x:Null}" Foreground="White" FontSize="16" AutomationProperties.IsOffscreenBehavior="Onscreen" Click="ButtonTestsAndPolls_Click"/>
+            <Button x:Name="ButtonTestsAndPolls" Content="Tests and Polls" Margin="23,306,0,115" Background="#FF7A3065" BorderBrush="{x:Null}" Foreground="White" FontSize="16" AutomationProperties.IsOffscreenBehavior="Onscreen" Click="ButtonTestsAndPolls_Click"/>
             <Button x:Name="ButtonUsers" Content="Users" Margin="0,380,0,41" Background="#FF7A3065" BorderBrush="{x:Null}" Foreground="#FFF3EEEE" FontSize="16" HorizontalAlignment="Left" Width="175"/>
             <Button x:Name="ButtonTGCheckChat" Content="   TGCheckChat" Margin="0,231,0,191" Click="ButtonTGCheckChat_Click" Background="#FF7A3065" BorderBrush="{x:Null}" Foreground="White" FontSize="16" FontWeight="Regular" FontStyle="Normal" HorizontalAlignment="Left" Width="175"/>
             <Image x:Name="TG_icon" HorizontalAlignment="Left" Height="30" Margin="8,254,0,0" VerticalAlignment="Top" Width="32" Source="/Images/chat_icon.png"/>
@@ -63,31 +88,65 @@
             <Image x:Name="TG_icon_Copy" HorizontalAlignment="Left" Height="30" Margin="8,104,0,0" VerticalAlignment="Top" Width="32" Source="/Images/document_icon.png"/>
         </Grid>
         <Image x:Name="LogoImage" HorizontalAlignment="Left" Height="52" VerticalAlignment="Top" Width="160" Source="/Images/LOGO5-removebg-preview.png" Margin="10,28,0,0" RenderTransformOrigin="0.5,0.646"/>
-                <Grid x:Name="GridTests" HorizontalAlignment="Left" Height="437" Margin="182,47,0,0" VerticalAlignment="Top" Width="598" RenderTransformOrigin="0.492,0.513" Grid.ColumnSpan="2" Visibility="Hidden"
+        
+        
+        <Grid x:Name="GridTests" HorizontalAlignment="Left" Height="373" Margin="222,58,0,0" VerticalAlignment="Top" Width="574" RenderTransformOrigin="0.492,0.513" Grid.ColumnSpan="2" Visibility="Hidden"
               >
+            <Grid.Background>
+                <SolidColorBrush Color="#FFECDAE6" Opacity="0.5"/>
+            </Grid.Background>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <ComboBox x:Name="ComboBoxChoiseTheTest" HorizontalAlignment="Left" Height="58" Margin="163,35,0,0" VerticalAlignment="Top" Width="111" DisplayMemberPath="">
+            <ComboBox x:Name="ComboBoxChoiseTheTest" HorizontalAlignment="Left" Height="25" Margin="163,68,0,0" VerticalAlignment="Top" Width="100" DisplayMemberPath="">
                 <Button Content="Test1" IsDefault="True"/>
             </ComboBox>
-            <TextBox x:Name="TextBoxTests" HorizontalAlignment="Left" Height="326" Margin="15,101,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="259"/>
-            <Label x:Name="LabelChooseTest" Content="Choose a Test" HorizontalAlignment="Left" Height="31" Margin="15,35,0,0" VerticalAlignment="Top" Width="132" FontSize="16" FontWeight="Bold"/>
-            <ComboBox x:Name="ComboBoxChoiseThePoll" HorizontalAlignment="Left" Height="58" Margin="457,35,0,0" VerticalAlignment="Top" Width="111" DisplayMemberPath="">
+            <TextBox x:Name="TextBoxTests" HorizontalAlignment="Left" Height="255" Margin="15,101,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="248" SelectionTextBrush="Black">
+                <TextBox.Background>
+                    <SolidColorBrush Color="White" Opacity="0.705"/>
+                </TextBox.Background>
+                <TextBox.BorderBrush>
+                    <SolidColorBrush Color="#FF7A3065" Opacity="0.7"/>
+                </TextBox.BorderBrush>
+                <TextBox.Foreground>
+                    <SolidColorBrush Color="White" Opacity="0.7"/>
+                </TextBox.Foreground>
+            </TextBox>
+            <Label x:Name="LabelChooseTest" Content="Choose a Test" HorizontalAlignment="Left" Height="31" Margin="15,35,0,0" VerticalAlignment="Top" Width="132" FontSize="16" FontWeight="Bold" Foreground="WhiteSmoke"/>
+            <ComboBox x:Name="ComboBoxChoiseThePoll" HorizontalAlignment="Left" Height="25" Margin="457,68,0,0" VerticalAlignment="Top" Width="100" DisplayMemberPath="">
                 <Button Content="Poll1"/>
             </ComboBox>
-            <Label x:Name="LabelChoosePoll" Content="Choose a Poll" HorizontalAlignment="Left" Height="31" Margin="309,35,0,0" VerticalAlignment="Top" Width="129" FontSize="18" FontWeight="Bold"/>
-            <TextBox x:Name="TextBoxPolls" HorizontalAlignment="Left" Height="326" Margin="309,101,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="259"/>
-            <Button x:Name="ButtonRedactTest" Content="Redact Test" HorizontalAlignment="Left" Height="25" Margin="15,68,0,0" VerticalAlignment="Top" Width="132"/>
-            <Button x:Name="ButtonRedactPoll" Content="Redact Poll" HorizontalAlignment="Left" Height="22" Margin="309,71,0,0" VerticalAlignment="Top" Width="129"/>
+            <Label x:Name="LabelChoosePoll" Content="Choose a Poll" HorizontalAlignment="Left" Height="31" Margin="309,35,0,0" VerticalAlignment="Top" Width="129" FontWeight="Bold" Foreground="White" FontSize="16"/>
+            <TextBox x:Name="TextBoxPolls" HorizontalAlignment="Left" Height="255" Margin="309,101,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="248" Foreground="White" BorderBrush="#FF7A3065">
+                <TextBox.Background>
+                    <SolidColorBrush Color="White" Opacity="0.7"/>
+                </TextBox.Background>
+            </TextBox>
+            <Button x:Name="ButtonRedactTest" Content="Redact Test" HorizontalAlignment="Left" Height="25" Margin="15,68,0,0" VerticalAlignment="Top" Width="132" Background="#FF7A3065" Foreground="White"/>
+            <Button x:Name="ButtonRedactPoll" Content="Redact Poll" HorizontalAlignment="Left" Height="25" Margin="309,68,0,0" VerticalAlignment="Top" Width="129" Background="#FF7A3065" Foreground="White"/>
         </Grid>
-        <Grid x:Name="GridPollCreator" HorizontalAlignment="Left" Height="351" Margin="222,58,0,0" VerticalAlignment="Top" Width="574" Visibility="Visible" Grid.ColumnSpan="2">
-            <TextBox x:Name="TextBoxNameOfPoll" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="206" Margin="5,4,0,0" Text="Enter name of poll" PreviewMouseDown="TextBoxNameOfPoll_PreviewMouseDown"/>
-            <TextBox x:Name="TextBoxTextOfPoll" TextWrapping="Wrap" Text="Enter text of Poll" Margin="5,30,127,279" PreviewMouseDown="TextBoxTextOfPoll_PreviewMouseDown"/>
-            <Button x:Name="ButtonAddVariant" Content="add variant" HorizontalAlignment="Left" Height="38" Margin="357,110,0,0" VerticalAlignment="Top" Width="90" Click="ButtonAddVariant_Click"/>
-            <TextBox x:Name="TextBoxVariantsOfPoll" HorizontalAlignment="Left" Height="22" Margin="5,83,0,0" TextWrapping="Wrap" Text="Enter variants of poll" VerticalAlignment="Top" Width="442" PreviewMouseDown="TextBoxVariantsOfPoll_PreviewMouseDown"/>
-            <WrapPanel x:Name="WrapPanelVariants" HorizontalAlignment="Left" Height="119" Margin="5,110,0,0" VerticalAlignment="Top" Width="347" Orientation="Vertical"/>
-            <Button x:Name="ButtonCreatePoll" Content="CREATE POLL" HorizontalAlignment="Left" Height="46" Margin="357,0,0,0" VerticalAlignment="Center" Width="90" FontSize="12" Click="ButtonCreatePoll_Click"/>
+        <Grid x:Name="GridPollCreator" HorizontalAlignment="Left" Height="373" Margin="222,58,0,0" VerticalAlignment="Top" Width="574" Visibility="Visible" Grid.ColumnSpan="2">
+            <Grid.Background>
+                <SolidColorBrush Color="#FFECDAE6" Opacity="0.5"/>
+            </Grid.Background>
+            <TextBox x:Name="TextBoxNameOfPoll" HorizontalAlignment="Left" Height="25" TextWrapping="Wrap" VerticalAlignment="Top" Width="254" Margin="10,25,0,0" Text="Enter name of poll">
+                <TextBox.Background>
+                    <SolidColorBrush Color="White" Opacity="0.7"/>
+                </TextBox.Background>
+            </TextBox>
+            <TextBox x:Name="TextBoxTextOfPoll" TextWrapping="Wrap" Text="Enter text of Poll" Margin="10,66,122,244">
+                <TextBox.Background>
+                    <SolidColorBrush Color="White" Opacity="0.7"/>
+                </TextBox.Background>
+            </TextBox>
+            <Button x:Name="ButtonAddVariant" Content="add variant" HorizontalAlignment="Left" Height="25" Margin="467,144,0,0" VerticalAlignment="Top" Width="90" Background="#FF7A3065" Foreground="White"/>
+            <TextBox x:Name="TextBoxVariantsOfPoll" HorizontalAlignment="Left" Height="25" Margin="10,145,0,0" TextWrapping="Wrap" Text="Enter variants of poll" VerticalAlignment="Top" Width="442">
+                <TextBox.Background>
+                    <SolidColorBrush Color="White" Opacity="0.7"/>
+                </TextBox.Background>
+            </TextBox>
+            
+            <Button x:Name="ButtonCreatePoll" Content="CREATE POLL" HorizontalAlignment="Left" Height="46" Margin="467,292,0,0" VerticalAlignment="Top" Width="90" FontSize="12" Click="ButtonCreatePoll_Click" Background="#FF7A3065" Foreground="White"/>
         </Grid>
     </Grid>
 </Window>

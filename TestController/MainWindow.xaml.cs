@@ -158,7 +158,7 @@ namespace TestController
             _listOfPolls.Add(new Poll(nameOfPoll, _crntPollQuestions));
             TextBoxNameOfPoll.Text = "Enter name of Poll";
             _crntPollQuestions = new List<AbstractQuestion>();
-            WrapPanelVariants.Children.Clear();
+            WrapPanelVariant.Children.Clear();
             TextBoxVariantsOfPoll.Text = _defaultVariant;
             _variantCounter = 1;
         }
@@ -234,6 +234,9 @@ namespace TestController
         }
 
         private int _variantCounter = 1;
+
+        public object WrapPanelVariants { get; private set; }
+
         private void ButtonAddVariant_Click(object sender, RoutedEventArgs e)
         {
             if (TextBoxVariantsOfPoll.Text != "" && TextBoxVariantsOfPoll.Text != _defaultVariant)
@@ -244,7 +247,7 @@ namespace TestController
                 _crntPollAnswers.Add(variantText);
                 TextBoxVariantsOfPoll.Text = _defaultVariant;
                 _variantCounter++;
-                WrapPanelVariants.Children.Add(variant);
+                WrapPanelVariant.Children.Add(variant);
                 TextBoxVariantsOfPoll_PreviewMouseDown_Counter = 0;
             }
 
