@@ -34,7 +34,7 @@ namespace TestController
         public int _indexOfRigthAnswer = -1;
         private List<Test> _listOfTests = new List<Test>();
         private List<Poll> _listOfPolls = new List<Poll>(); 
-        private TelegramBot _telegramBot;
+        private TelegramClient _telegramBot;
         private const string _token = "5214418897:AAGMzUpDI8mf2cVJ0S7kFGa_QheT0LYonMQ";
         private DispatcherTimer _timer;
         public MainWindow()

@@ -7,12 +7,12 @@ using Telegram.Bot.Types.ReplyMarkups;
 
 namespace TestMe.BLL
 {
-    public class TelegramBot
+    public class TelegramClient
     {
         private TelegramBotClient _client;
         private Action<string> _onMessage;
         private List<long> _userIDs;
-        public TelegramBot(string token, Action<string> onMessage)
+        public TelegramClient(string token, Action<string> onMessage)
         {
             _client = new TelegramBotClient(token);
             _onMessage = onMessage;
