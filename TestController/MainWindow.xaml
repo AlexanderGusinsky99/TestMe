@@ -1,4 +1,4 @@
-﻿<Window x:Class="TestController.MainWindow"
+﻿<Window x:Name="WindowMainWindow" x:Class="TestController.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="517" Width="819">
     <Grid Margin="0,0,0,-6">
-        <Grid x:Name="GridTestCreator" HorizontalAlignment="Left" Height="357" Margin="174,58,0,0" VerticalAlignment="Top" Width="599" Visibility="Visible">
+        <Grid x:Name="GridTestCreator" HorizontalAlignment="Left" Height="357" Margin="174,58,0,0" VerticalAlignment="Top" Width="599" Visibility="Hidden">
             <TextBox x:Name="TextBoxNameOfTest" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="206" Margin="5,4,0,0" Text="Enter name of test" PreviewMouseDown="TextBoxNameOfTest_PreviewMouseDown"/>
             <Button x:Name="ButtonAddQuestion" Content="add question" Margin="357,135,152,200" Click="ButtonAddQuestion_Click"/>
             <TextBox x:Name="TextBoxTextOfQuestion" TextWrapping="Wrap" Text="Enter text of question" Margin="5,30,152,279" PreviewMouseDown="TextBoxTextOfQuestion_PreviewMouseDown"/>
@@ -16,12 +16,51 @@
             <WrapPanel x:Name="WrapPanelAnswers" HorizontalAlignment="Left" Height="119" Margin="5,110,0,0" VerticalAlignment="Top" Width="347" Orientation="Vertical"/>
             <Button x:Name="ButtonCreateTest" Content="CREATE TEST" HorizontalAlignment="Left" Height="30" Margin="357,199,0,0" VerticalAlignment="Top" Width="90" Click="ButtonCreateTest_Click" FontSize="12"/>
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="368" Margin="0,-30,0,0" VerticalAlignment="Top" Width="182">
+        <Grid HorizontalAlignment="Left" Height="368" VerticalAlignment="Top" Width="182" Margin="-13,0,0,0" >
             <Button x:Name="ButtonTestCreator" Content="Test creator" Margin="31,90,29,235" Click="ButtonTestCreator_Click"/>
-            <Button Content="Poll creator" Margin="31,138,29,189"/>
-            <Button Content="Tests" Margin="19,218,20,105"/>
+            <Button x:Name="ButtonPollCreator" Content="Poll creator" Margin="31,138,29,189" Click="ButtonPollCreator_Click"/>
+            <Button x:Name="BottonTTestsAndPolls" Content="Tests and polls" Margin="19,218,20,105" Click="BottonTTestsAndPolls_Click"/>
             <Button Content="Users" Margin="19,268,20,53"/>
             <Button x:Name="ButtonTGCheckChat" Content="TGCheckChat" Margin="22,184,29,155" Click="ButtonTGCheckChat_Click"/>
+        </Grid>
+        <Grid Margin="50,22,-17,-7">
+            <Grid x:Name="GridTGCheckChat" HorizontalAlignment="Left" Height="416" Margin="159,21,0,0" VerticalAlignment="Top" Width="526" Visibility="Visible">
+                <Label x:Name="LabelReciever" Content="Reciever" HorizontalAlignment="Left" Height="30" Margin="349,15,0,0" VerticalAlignment="Top" Width="177"/>
+                <TextBox x:Name="TextBoxTGSender" HorizontalAlignment="Left" Height="73" Margin="155,185,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="187"/>
+                <ListBox x:Name="LBTGCheckChat" HorizontalAlignment="Left" Height="326" Margin="349,0,0,0" VerticalAlignment="Center" Width="167" />
+                <Label x:Name="LabelSender" Content="Send message" HorizontalAlignment="Left" Height="30" Margin="155,155,0,0" VerticalAlignment="Top" Width="95"/>
+                <Button x:Name="ButtonStart" Content="Start" HorizontalAlignment="Left" Height="38" Margin="13,307,0,0" VerticalAlignment="Top" Width="135" Click="ButtonStart_Click"/>
+                <Button x:Name="ButtonStop" Content="Stop" HorizontalAlignment="Left" Height="38" Margin="13,350,0,0" VerticalAlignment="Top" Width="135"/>
+                <Button x:Name="ButtonSend" Content="Send" HorizontalAlignment="Left" Height="18" Margin="248,263,0,0" VerticalAlignment="Top" Width="94" Click="ButtonSend_Click"/>
+                <Label x:Name="LabelUConnectedUsers" Content="Connected users:" HorizontalAlignment="Left" Height="26" Margin="10,15,0,0" VerticalAlignment="Top" Width="138"/>
+                <ListBox x:Name="ListBoxUConnectedUsers" HorizontalAlignment="Left" Height="253" Margin="10,46,0,0" VerticalAlignment="Top" Width="138"/>
+                <ComboBox x:Name="ComboBoxTestOrPoll" HorizontalAlignment="Left" Height="24" Margin="153,47,0,0" VerticalAlignment="Top" Width="191" SelectionChanged="ComboBoxTestOrPoll_SelectionChanged">
+                    <ComboBoxItem Content="TEST"/>
+                    <ComboBoxItem Content="POLL"/>
+                </ComboBox>
+                <Label x:Name="LabelChooseTestPoll" Content="Choose test or poll" HorizontalAlignment="Left" Height="29" Margin="148,13,0,0" VerticalAlignment="Top" Width="109"/>
+                <Button x:Name="ButtonStartTest" Content="Start Test or Poll" HorizontalAlignment="Left" Height="27" Margin="153,105,0,0" VerticalAlignment="Top" Width="191"/>
+                <ComboBox x:Name="ComboBoxTstPllSelected" HorizontalAlignment="Left" Margin="153,76,0,0" VerticalAlignment="Top" Width="191" Height="24"/>
+            </Grid>
+            <Grid x:Name="GridPollCreator" HorizontalAlignment="Left" Height="383" Margin="196,0,0,0" VerticalAlignment="Center" Width="590" Visibility="Hidden">
+                <TextBox x:Name="TextBoxPollCratorNameOfPoll" HorizontalAlignment="Left" Height="19" Margin="22,24,0,0" TextWrapping="Wrap" Text="Enter name of poll" VerticalAlignment="Top" Width="190"/>
+                <TextBox x:Name="TextBoxPollCreatorTextOfQuestion" HorizontalAlignment="Left" Height="60" Margin="22,48,0,0" TextWrapping="Wrap" Text="Enter text of question" VerticalAlignment="Top" Width="509"/>
+                <TextBox x:Name="TextBoxPCTextOfAnswer" HorizontalAlignment="Left" Height="32" Margin="22,123,0,0" TextWrapping="Wrap" Text="Enter text of answer" VerticalAlignment="Top" Width="393"/>
+                <WrapPanel HorizontalAlignment="Left" Height="190" Margin="22,160,0,0" VerticalAlignment="Top" Width="393"/>
+                <Button x:Name="ButtonPCAddAnswer" Content="Add answer" HorizontalAlignment="Left" Height="30" Margin="445,125,0,0" VerticalAlignment="Top" Width="105"/>
+                <Button x:Name="ButtonAddQuestion1" Content="Add question" HorizontalAlignment="Left" Height="31" Margin="445,173,0,0" VerticalAlignment="Top" Width="105"/>
+                <Button x:Name="ButtonPCCreatePoll" Content="Create poll" HorizontalAlignment="Left" Height="44" Margin="445,329,0,0" VerticalAlignment="Top" Width="113"/>
+            </Grid>
+            <Grid x:Name="GridTests" HorizontalAlignment="Left" Height="438" Margin="159,29,0,0" VerticalAlignment="Top" Width="597" Visibility="Hidden">
+                <Label x:Name="LabelTChooseTest" Content="Choose test" HorizontalAlignment="Left" Height="44" Margin="45,19,0,0" VerticalAlignment="Top" Width="213"/>
+                <Label x:Name="LabelTChoosePoll" Content="Choose poll" HorizontalAlignment="Left" Height="44" Margin="312,19,0,0" VerticalAlignment="Top" Width="213"/>
+                <Button x:Name="ButtonTRedacrtTest" Content="Redact test" HorizontalAlignment="Left" Height="25" Margin="10,64,0,0" VerticalAlignment="Top" Width="74"/>
+                <Button x:Name="ButtonTRedactPoll" Content="Redact poll" HorizontalAlignment="Left" Height="24" Margin="290,68,0,0" VerticalAlignment="Top" Width="105"/>
+                <ComboBox x:Name="ComboBoxTTestChosen" HorizontalAlignment="Left" Height="26" Margin="91,62,0,0" VerticalAlignment="Top" Width="167"/>
+                <ComboBox x:Name="ComboBoxTPollChosen" HorizontalAlignment="Left" Height="26" Margin="400,66,0,0" VerticalAlignment="Top" Width="163"/>
+                <ListBox x:Name="ListBoxTListOfTestNames" HorizontalAlignment="Left" Height="305" Margin="21,110,0,0" VerticalAlignment="Top" Width="237"/>
+                <ListBox x:Name="ListBoxTListOfPolls" HorizontalAlignment="Left" Height="277" Margin="312,110,0,0" VerticalAlignment="Top" Width="237"/>
+            </Grid>
         </Grid>
     </Grid>
 </Window>

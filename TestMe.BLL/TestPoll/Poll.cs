@@ -8,14 +8,25 @@ namespace TestMe.BLL
 {
     internal class Poll : IAnswerable
     {
+        private List<AbstractQuestion> _listOfPolls;
+        private int Length = 0;
         public string Name { get; set; }
+
+        public Poll(string nameOfPoll, List<AbstractQuestion> listOfQuestions)
+        {
+            Name = nameOfPoll;
+            _listOfPolls = listOfQuestions;
+        }
+
 
         public void SetName(string nameOfPoll)
         {
             Name = nameOfPoll;
         }
-        public void AddQuestion(AbstractQuestion quetion)
+        public void AddQuestion(AbstractQuestion pollQuestion)
         {
+            _listOfPolls.Add(pollQuestion);
+            Length++;
         }
     }
 }

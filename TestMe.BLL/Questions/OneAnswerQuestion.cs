@@ -18,5 +18,7 @@ namespace TestMe.BLL
             List<string> _listOfAnswers = listOfAnswers;
             _indexOfRightAnswer = indexOfRightAnswer;
         }
+        public OneAnswerQuestion()
+        { }
     }
 }
