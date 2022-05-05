@@ -88,7 +88,10 @@
             <Image x:Name="TG_icon_Copy" HorizontalAlignment="Left" Height="30" Margin="8,104,0,0" VerticalAlignment="Top" Width="32" Source="/Images/document_icon.png"/>
         </Grid>
         <Image x:Name="LogoImage" HorizontalAlignment="Left" Height="52" VerticalAlignment="Top" Width="160" Source="/Images/LOGO5-removebg-preview.png" Margin="10,28,0,0" RenderTransformOrigin="0.5,0.646"/>
-        <Grid x:Name="GridTests" HorizontalAlignment="Left" Height="373" Margin="222,58,0,0" VerticalAlignment="Top" Width="574" RenderTransformOrigin="0.492,0.513" Grid.ColumnSpan="2" Visibility="Visible"
+        
+        
+        
+        <Grid x:Name="GridTests" HorizontalAlignment="Left" Height="373" Margin="222,58,0,0" VerticalAlignment="Top" Width="574" RenderTransformOrigin="0.492,0.513" Grid.ColumnSpan="2" Visibility="Hidden"
               >
             <Grid.Background>
                 <SolidColorBrush Color="#FFECDAE6" Opacity="0.5"/>
@@ -123,7 +126,7 @@
             <Button x:Name="ButtonRedactTest" Content="Redact Test" HorizontalAlignment="Left" Height="25" Margin="15,68,0,0" VerticalAlignment="Top" Width="132" Background="#FF7A3065" Foreground="White"/>
             <Button x:Name="ButtonRedactPoll" Content="Redact Poll" HorizontalAlignment="Left" Height="25" Margin="309,68,0,0" VerticalAlignment="Top" Width="129" Background="#FF7A3065" Foreground="White"/>
         </Grid>
-        <Grid x:Name="GridPollCreator" HorizontalAlignment="Left" Height="373" Margin="222,58,0,0" VerticalAlignment="Top" Width="574" Visibility="Hidden" Grid.ColumnSpan="2">
+        <Grid x:Name="GridPollCreator" HorizontalAlignment="Left" Height="373" Margin="222,58,0,0" VerticalAlignment="Top" Width="574" Visibility="Visible" Grid.ColumnSpan="2">
             <Grid.Background>
                 <SolidColorBrush Color="#FFECDAE6" Opacity="0.5"/>
             </Grid.Background>
@@ -143,7 +146,7 @@
                     <SolidColorBrush Color="White" Opacity="0.7"/>
                 </TextBox.Background>
             </TextBox>
-            <WrapPanel x:Name="WrapPanelAnswers1" HorizontalAlignment="Left" Height="152" Margin="10,186,0,0" VerticalAlignment="Top" Width="442" Orientation="Vertical" RenderTransformOrigin="0.487,0.516">
+            <WrapPanel x:Name="WrapPanelVariants" HorizontalAlignment="Left" Height="152" Margin="10,186,0,0" VerticalAlignment="Top" Width="442" Orientation="Vertical" RenderTransformOrigin="0.487,0.516">
                 <WrapPanel.Background>
                     <SolidColorBrush Color="White" Opacity="0.7"/>
                 </WrapPanel.Background>
