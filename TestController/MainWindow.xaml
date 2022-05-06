@@ -5,7 +5,68 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TestController"
         mc:Ignorable="d"
-        Title="MainWindow" Height="494" Width="839">
+        Title="MainWindow" Height="470" Width="839"
+        ResizeMode="NoResize"
+        Topmost="True"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" StrokeDashArray="1 2" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" SnapsToDevicePixels="true" StrokeThickness="1"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <Style x:Key="RoundedBottonStyle" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" CornerRadius="10" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid Height="480" VerticalAlignment="Top">
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -153,23 +214,38 @@
             </WrapPanel>
             <Button x:Name="ButtonCreatePoll" Content="CREATE POLL" HorizontalAlignment="Left" Height="46" Margin="467,292,0,0" VerticalAlignment="Top" Width="90" FontSize="12" Click="ButtonCreatePoll_Click" Background="#FF7A3065" Foreground="White"/>
         </Grid>
-        <Grid x:Name="GridTGCheckChat" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="383" Margin="192,0,0,0" VerticalAlignment="Center" Width="575">
-            <Label x:Name="LabelUConnectedUsers" Content="Connected Users:" HorizontalAlignment="Left" Height="34" Margin="19,18,0,0" VerticalAlignment="Top" Width="126"/>
-            <Label x:Name="LabelChooseTestPoll" Content="Choose test or poll" HorizontalAlignment="Left" Height="33" Margin="209,17,0,0" VerticalAlignment="Top" Width="142"/>
-            <Label x:Name="LabelReciever" Content="Reciever" HorizontalAlignment="Left" Height="33" Margin="412,19,0,0" VerticalAlignment="Top" Width="146"/>
-            <ListBox x:Name="ListBoxUConnectedUsers" HorizontalAlignment="Left" Height="208" Margin="25,56,0,0" VerticalAlignment="Top" Width="152" d:ItemsSource="{d:SampleData ItemCount=5}"/>
-            <ComboBox x:Name="ComboBoxTestOrPoll" HorizontalAlignment="Center" Height="26" Margin="0,61,0,0" VerticalAlignment="Top" Width="195" SizeChanged="ComboBoxTestOrPoll_SelectionChanged">
+        <Grid x:Name="GridTGCheckChat" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="383" Margin="222,58,0,49" VerticalAlignment="Top" Width="575">
+            <Grid.Background>
+                <SolidColorBrush Color="#FFECDAE6" Opacity="0.50"/>
+            </Grid.Background>
+            <Label x:Name="LabelUConnectedUsers" Content="Connected Users:" HorizontalAlignment="Left" Height="24" Margin="46,28,0,0" VerticalAlignment="Top" Width="110" Background="Transparent" Foreground="#FFF9F9F9" FontWeight="Bold"/>
+            <Label x:Name="LabelChooseTestPoll" Content="Choose test or poll" HorizontalAlignment="Left" Height="24" Margin="231,28,0,0" VerticalAlignment="Top" Width="126" Foreground="White" FontWeight="Bold"/>
+            <Label x:Name="LabelReciever" Content="Reciever" HorizontalAlignment="Left" Height="24" Margin="447,28,0,0" VerticalAlignment="Top" Width="61" FontWeight="Bold" Foreground="White"/>
+            <ListBox x:Name="ListBoxUConnectedUsers" HorizontalAlignment="Left" Height="208" Margin="16,55,0,0" VerticalAlignment="Top" Width="146" d:ItemsSource="{d:SampleData ItemCount=5}" FontWeight="Normal">
+                <ListBox.Background>
+                    <SolidColorBrush Color="White" Opacity="0.7"/>
+                </ListBox.Background>
+            </ListBox>
+            <ComboBox x:Name="ComboBoxTestOrPoll" HorizontalAlignment="Center" Height="25" Margin="0,56,0,0" VerticalAlignment="Top" Width="196" SizeChanged="ComboBoxTestOrPoll_SelectionChanged">
                 <ComboBoxItem Content="TEST"/>
                 <ComboBoxItem Content="POLL"/>
             </ComboBox>
-            <ComboBox x:Name="ComboBoxTstPllSelected" HorizontalAlignment="Center" Height="26" Margin="0,92,0,0" VerticalAlignment="Top" Width="194"/>
-            <Button x:Name="ButtonStartTest" Content="Start Test or Poll" HorizontalAlignment="Center" Height="26" Margin="0,123,0,0" VerticalAlignment="Top" Width="194"/>
-            <Label x:Name="LabelSender" Content="Send message" HorizontalAlignment="Center" Height="23" Margin="0,160,0,0" VerticalAlignment="Top" Width="113"/>
-            <TextBox x:Name="TextBoxTGSender" HorizontalAlignment="Center" Height="119" Margin="0,204,0,0" TextWrapping="Wrap" Text="Send your message" VerticalAlignment="Top" Width="195"/>
-            <Button x:Name="ButtonSend" Content="Send" HorizontalAlignment="Left" Height="23" Margin="290,328,0,0" VerticalAlignment="Top" Width="95"/>
-            <Button x:Name="ButtonStart" Content="Start" HorizontalAlignment="Left" Height="35" Margin="25,276,0,0" VerticalAlignment="Top" Width="152" Click="ButtonStart_Click"/>
-            <Button x:Name="ButtonStop" Content="Stop" HorizontalAlignment="Left" Height="41" Margin="25,325,0,0" VerticalAlignment="Top" Width="152"/>
-            <ListBox x:Name="ListBoxLBTGCheckChat" HorizontalAlignment="Left" Height="295" Margin="407,56,0,0" VerticalAlignment="Top" Width="141" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+            <ComboBox x:Name="ComboBoxTstPllSelected" HorizontalAlignment="Center" Height="25" Margin="0,93,0,0" VerticalAlignment="Top" Width="196"/>
+            <Button Style="{DynamicResource RoundedBottonStyle}" x:Name="ButtonStartTest" Content="Start Test or Poll" HorizontalAlignment="Center" Height="25" Margin="0,130,0,0" VerticalAlignment="Top" Width="194" Background="#FF7A3065" Foreground="White"/>
+            <Label x:Name="LabelSender" Content="Send message" HorizontalAlignment="Center" Height="28" Margin="0,160,0,0" VerticalAlignment="Top" Width="100" FontWeight="Bold" Foreground="#FFFFFDFD"/>
+            <TextBox x:Name="TextBoxTGSender" HorizontalAlignment="Center" Height="136" Margin="0,188,0,0" TextWrapping="Wrap" Text="Send your message" VerticalAlignment="Top" Width="196">
+                <TextBox.Background>
+                    <SolidColorBrush Color="White" Opacity="0.702"/>
+                </TextBox.Background>
+            </TextBox>
+            <Button Style="{DynamicResource RoundedBottonStyle}" x:Name="ButtonSend" Content="Send" HorizontalAlignment="Left" Height="26" Margin="290,340,0,0" VerticalAlignment="Top" Width="96" Background="#FF7A3065" Foreground="#FFFBFBFB"/>
+            <Button Style="{DynamicResource RoundedBottonStyle}" x:Name="ButtonStart" Content="Start" HorizontalAlignment="Left" Height="25" Margin="16,276,0,0" VerticalAlignment="Top" Width="152" Click="ButtonStart_Click" Background="#FF7A3065" Foreground="White"/>
+            <Button Style="{DynamicResource RoundedBottonStyle}" x:Name="ButtonStop" Content="Stop" HorizontalAlignment="Left" Height="41" Margin="16,325,0,0" VerticalAlignment="Top" Width="152" Foreground="White" Background="#FF7A3065" />
+            <ListBox x:Name="ListBoxLBTGCheckChat" HorizontalAlignment="Left" Height="311" Margin="412,55,0,0" VerticalAlignment="Top" Width="146" d:ItemsSource="{d:SampleData ItemCount=5}">
+                <ListBox.Background>
+                    <SolidColorBrush Color="White" Opacity="0.7"/>
+                </ListBox.Background>
+            </ListBox>
         </Grid>
     </Grid>
 </Window>
