@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <None Remove="chat_icon.png" />
+    <None Remove="Close_icon.png" />
     <None Remove="document_icon.png" />
     <None Remove="folder_document_multimedia_icon.png" />
     <None Remove="LOGO5-removebg-preview.png" />
@@ -26,6 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\Close_icon.png" />
     <Resource Include="Images\chat_icon.png" />
     <Resource Include="Images\document_icon.png" />
     <Resource Include="Images\folder_document_multimedia_icon.png" />
