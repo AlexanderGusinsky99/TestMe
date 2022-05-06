@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TestController"
         mc:Ignorable="d"
-        Title="MainWindow" Height="494" Width="839"> 
+        Title="MainWindow" Height="494" Width="839">
     <Grid Height="480" VerticalAlignment="Top">
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -88,9 +88,9 @@
             <Image x:Name="TG_icon_Copy" HorizontalAlignment="Left" Height="30" Margin="8,104,0,0" VerticalAlignment="Top" Width="32" Source="/Images/document_icon.png"/>
         </Grid>
         <Image x:Name="LogoImage" HorizontalAlignment="Left" Height="52" VerticalAlignment="Top" Width="160" Source="/Images/LOGO5-removebg-preview.png" Margin="10,28,0,0" RenderTransformOrigin="0.5,0.646"/>
-        
-        
-        
+
+
+
         <Grid x:Name="GridTests" HorizontalAlignment="Left" Height="373" Margin="222,58,0,0" VerticalAlignment="Top" Width="574" RenderTransformOrigin="0.492,0.513" Grid.ColumnSpan="2" Visibility="Hidden"
               >
             <Grid.Background>
@@ -102,31 +102,31 @@
             <ComboBox x:Name="ComboBoxChoiseTheTest" HorizontalAlignment="Left" Height="25" Margin="163,68,0,0" VerticalAlignment="Top" Width="100" DisplayMemberPath="">
                 <Button Content="Test1" IsDefault="True"/>
             </ComboBox>
-            <TextBox x:Name="TextBoxTests" HorizontalAlignment="Left" Height="255" Margin="15,101,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="248" SelectionTextBrush="Black">
-                <TextBox.Background>
+            <ListBox x:Name="ListBoxTListOfTestNames" HorizontalAlignment="Left" Height="255" Margin="15,101,0,0"  VerticalAlignment="Top" Width="248" >
+                <ListBox.Background>
                     <SolidColorBrush Color="White" Opacity="0.705"/>
-                </TextBox.Background>
-                <TextBox.BorderBrush>
+                </ListBox.Background>
+                <ListBox.BorderBrush>
                     <SolidColorBrush Color="#FF7A3065" Opacity="0.7"/>
-                </TextBox.BorderBrush>
-                <TextBox.Foreground>
+                </ListBox.BorderBrush>
+                <ListBox.Foreground>
                     <SolidColorBrush Color="White" Opacity="0.7"/>
-                </TextBox.Foreground>
-            </TextBox>
+                </ListBox.Foreground>
+            </ListBox>
             <Label x:Name="LabelChooseTest" Content="Choose a Test" HorizontalAlignment="Left" Height="31" Margin="15,35,0,0" VerticalAlignment="Top" Width="132" FontSize="16" FontWeight="Bold" Foreground="WhiteSmoke"/>
             <ComboBox x:Name="ComboBoxChoiseThePoll" HorizontalAlignment="Left" Height="25" Margin="457,68,0,0" VerticalAlignment="Top" Width="100" DisplayMemberPath="">
                 <Button Content="Poll1"/>
             </ComboBox>
             <Label x:Name="LabelChoosePoll" Content="Choose a Poll" HorizontalAlignment="Left" Height="31" Margin="309,35,0,0" VerticalAlignment="Top" Width="129" FontWeight="Bold" Foreground="White" FontSize="16"/>
-            <TextBox x:Name="TextBoxPolls" HorizontalAlignment="Left" Height="255" Margin="309,101,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="248" Foreground="White" BorderBrush="#FF7A3065">
-                <TextBox.Background>
+            <ListBox x:Name="ListBoxTListofPolls" HorizontalAlignment="Left" Height="255" Margin="309,101,0,0"  VerticalAlignment="Top" Width="248" Foreground="White" BorderBrush="#FF7A3065">
+                <ListBox.Background>
                     <SolidColorBrush Color="White" Opacity="0.7"/>
-                </TextBox.Background>
-            </TextBox>
+                </ListBox.Background>
+            </ListBox>
             <Button x:Name="ButtonRedactTest" Content="Redact Test" HorizontalAlignment="Left" Height="25" Margin="15,68,0,0" VerticalAlignment="Top" Width="132" Background="#FF7A3065" Foreground="White"/>
             <Button x:Name="ButtonRedactPoll" Content="Redact Poll" HorizontalAlignment="Left" Height="25" Margin="309,68,0,0" VerticalAlignment="Top" Width="129" Background="#FF7A3065" Foreground="White"/>
         </Grid>
-        <Grid x:Name="GridPollCreator" HorizontalAlignment="Left" Height="373" Margin="222,58,0,0" VerticalAlignment="Top" Width="574" Visibility="Visible" Grid.ColumnSpan="2">
+        <Grid x:Name="GridPollCreator" HorizontalAlignment="Left" Height="373" Margin="222,58,0,0" VerticalAlignment="Top" Width="574" Visibility="Hidden" Grid.ColumnSpan="2">
             <Grid.Background>
                 <SolidColorBrush Color="#FFECDAE6" Opacity="0.5"/>
             </Grid.Background>
@@ -152,6 +152,24 @@
                 </WrapPanel.Background>
             </WrapPanel>
             <Button x:Name="ButtonCreatePoll" Content="CREATE POLL" HorizontalAlignment="Left" Height="46" Margin="467,292,0,0" VerticalAlignment="Top" Width="90" FontSize="12" Click="ButtonCreatePoll_Click" Background="#FF7A3065" Foreground="White"/>
+        </Grid>
+        <Grid x:Name="GridTGCheckChat" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="383" Margin="192,0,0,0" VerticalAlignment="Center" Width="575">
+            <Label x:Name="LabelUConnectedUsers" Content="Connected Users:" HorizontalAlignment="Left" Height="34" Margin="19,18,0,0" VerticalAlignment="Top" Width="126"/>
+            <Label x:Name="LabelChooseTestPoll" Content="Choose test or poll" HorizontalAlignment="Left" Height="33" Margin="209,17,0,0" VerticalAlignment="Top" Width="142"/>
+            <Label x:Name="LabelReciever" Content="Reciever" HorizontalAlignment="Left" Height="33" Margin="412,19,0,0" VerticalAlignment="Top" Width="146"/>
+            <ListBox x:Name="ListBoxUConnectedUsers" HorizontalAlignment="Left" Height="208" Margin="25,56,0,0" VerticalAlignment="Top" Width="152" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+            <ComboBox x:Name="ComboBoxTestOrPoll" HorizontalAlignment="Center" Height="26" Margin="0,61,0,0" VerticalAlignment="Top" Width="195" SizeChanged="ComboBoxTestOrPoll_SelectionChanged">
+                <ComboBoxItem Content="TEST"/>
+                <ComboBoxItem Content="POLL"/>
+            </ComboBox>
+            <ComboBox x:Name="ComboBoxTstPllSelected" HorizontalAlignment="Center" Height="26" Margin="0,92,0,0" VerticalAlignment="Top" Width="194"/>
+            <Button x:Name="ButtonStartTest" Content="Start Test or Poll" HorizontalAlignment="Center" Height="26" Margin="0,123,0,0" VerticalAlignment="Top" Width="194"/>
+            <Label x:Name="LabelSender" Content="Send message" HorizontalAlignment="Center" Height="23" Margin="0,160,0,0" VerticalAlignment="Top" Width="113"/>
+            <TextBox x:Name="TextBoxTGSender" HorizontalAlignment="Center" Height="119" Margin="0,204,0,0" TextWrapping="Wrap" Text="Send your message" VerticalAlignment="Top" Width="195"/>
+            <Button x:Name="ButtonSend" Content="Send" HorizontalAlignment="Left" Height="23" Margin="290,328,0,0" VerticalAlignment="Top" Width="95"/>
+            <Button x:Name="ButtonStart" Content="Start" HorizontalAlignment="Left" Height="35" Margin="25,276,0,0" VerticalAlignment="Top" Width="152" Click="ButtonStart_Click"/>
+            <Button x:Name="ButtonStop" Content="Stop" HorizontalAlignment="Left" Height="41" Margin="25,325,0,0" VerticalAlignment="Top" Width="152"/>
+            <ListBox x:Name="ListBoxLBTGCheckChat" HorizontalAlignment="Left" Height="295" Margin="407,56,0,0" VerticalAlignment="Top" Width="141" d:ItemsSource="{d:SampleData ItemCount=5}"/>
         </Grid>
     </Grid>
 </Window>

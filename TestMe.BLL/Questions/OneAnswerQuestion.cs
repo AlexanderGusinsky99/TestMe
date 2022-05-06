@@ -8,7 +8,7 @@ namespace TestMe.BLL
 {
     public class OneAnswerQuestion : AbstractQuestion // Выбор одного ответа
     {
-        //Поля или свойства? Пока не ясно, главное, чтобы работало, но потом поправить нужно обязательно
+        
         public string TextOfQuestion { get; set; }
         public int _indexOfRightAnswer;
         public OneAnswerQuestion(string textOfQuestion, List<string> listOfAnswers, int indexOfRightAnswer)

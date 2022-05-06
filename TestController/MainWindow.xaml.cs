@@ -14,6 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using TestMe.BLL;
+using Telegram.Bot.Types;
+
 
 namespace TestController
 {
@@ -32,15 +34,25 @@ namespace TestController
         public AbstractQuestion _crntTestQuestion;
         public AbstractQuestion _crntPollQuestion;
         public int _indexOfRigthAnswer = -1;
+        List<string> _messageSourse;
         private List<Test> _listOfTests = new List<Test>();
-        private List<Poll> _listOfPolls = new List<Poll>(); 
+        private List<TestMe.BLL.Poll> _listOfPolls = new List<TestMe.BLL.Poll>();
+        private List<string> _listofTestNames;
         private TelegramClient _telegramClient;
         private const string _token = "5214418897:AAGMzUpDI8mf2cVJ0S7kFGa_QheT0LYonMQ";
-        List<string> _messageSourse;
-        private DispatcherTimer _timer;
+               private DispatcherTimer _timer;
         public MainWindow()
         {
             InitializeComponent();
+            _telegramClient = new TelegramClient(_token, OnMessage);
+            _messageSourse = new List<string>();
+            ListBoxLBTGCheckChat.ItemsSource = _messageSourse;
+            ListBoxTListOfTestNames.ItemsSource = _listofTestNames;
+            ListBoxUConnectedUsers.ItemsSource = _telegramClient.ConnectedUsers;
+            _timer = new DispatcherTimer();
+            _timer.Interval = TimeSpan.FromSeconds(3);
+            _timer.Tick += OnTick;
+            _timer.Start();
 
         }
         private void ButtonCreateTest_Click(object sender, RoutedEventArgs e)
@@ -52,16 +64,35 @@ namespace TestController
             WrapPanelAnswers.Children.Clear();
             TextBoxTextOfQuestion.Text = _defaultQuestionText;
             _answerCounter = 1;
+            ListBoxTListOfTestNames.ItemsSource = _listofTestNames;
+            ListBoxTListOfTestNames.Items.Refresh();
 
+        }
+        public List<string> GetTestNames(List<Test> listOfTests)
+        {
+            List<string> listOfTestNames = new List<string>();
+            for (int i = 0; i < listOfTests.Count; i++)
+            {
+                listOfTestNames.Add(_listOfTests[i].Name);
+            }
+            return listOfTestNames;
+        }
+        public void OnMessage(string message)
+        {
+            _messageSourse.Add(message);
         }
         private void ButtonTestCreator_Click(object sender, RoutedEventArgs e)
         {
+            GridTGCheckChat.Visibility = Visibility.Hidden;
             GridTests.Visibility = Visibility.Hidden;
             GridPollCreator.Visibility = Visibility.Hidden;
             GridTestCreator.Visibility = Visibility.Visible;
+            ListBoxTListOfTestNames.ItemsSource = _listofTestNames;
+            ListBoxTListOfTestNames.Items.Refresh();
         }
         private void ButtonTGCheckChat_Click(object sender, RoutedEventArgs e)
         {
+            GridTGCheckChat.Visibility = Visibility.Visible;
             GridTestCreator.Visibility = Visibility.Hidden;
             GridPollCreator.Visibility = Visibility.Hidden;
             GridTests.Visibility = Visibility.Hidden;
@@ -142,6 +173,7 @@ namespace TestController
 
         private void ButtonPollCreator_Click(object sender, RoutedEventArgs e)
         {
+            GridTGCheckChat.Visibility = Visibility.Hidden;
             GridTestCreator.Visibility = Visibility.Hidden;
             GridTests.Visibility = Visibility.Hidden;
             GridPollCreator.Visibility = Visibility.Visible;
@@ -149,15 +181,18 @@ namespace TestController
 
         private void ButtonTestsAndPolls_Click(object sender, RoutedEventArgs e)
         {
+            GridTests.Visibility = Visibility.Visible;
+            GridTGCheckChat.Visibility = Visibility.Hidden;
             GridTestCreator.Visibility = Visibility.Hidden;
             GridPollCreator.Visibility = Visibility.Hidden;
-            GridTests.Visibility = Visibility.Visible;
+            _listofTestNames = GetTestNames(_listOfTests);
+            ListBoxTListOfTestNames.ItemsSource = _listofTestNames;
         }
 
         private void ButtonCreatePoll_Click(object sender, RoutedEventArgs e)
         {
             string nameOfPoll = TextBoxNameOfPoll.Text;
-            _listOfPolls.Add(new Poll(nameOfPoll, _crntPollQuestions));
+            _listOfPolls.Add(new TestMe.BLL.Poll(nameOfPoll, _crntPollQuestions));
             TextBoxNameOfPoll.Text = "Enter name of Poll";
             _crntPollQuestions = new List<AbstractQuestion>();
             WrapPanelVariants.Children.Clear();
@@ -249,9 +284,42 @@ namespace TestController
                 WrapPanelVariants.Children.Add(variant);
                 TextBoxVariantsOfPoll_PreviewMouseDown_Counter = 0;
             }
-
-
         }
+
+        private void ButtonSend_Click(object sender, RoutedEventArgs e)
+        {
+            _telegramClient.Send(TextBoxTGSender.Text);
+        }
+
+        private void OnTick(object sender, EventArgs e)
+        {
+            ListBoxLBTGCheckChat.Items.Refresh();
+            ListBoxUConnectedUsers.Items.Refresh();
+        }
+
+        private void ComboBoxTestOrPoll_SelectionChanged(object sender, SizeChangedEventArgs e)
+        {
+            switch (ComboBoxTestOrPoll.SelectedIndex)
+            {
+                case 0:
+                    ComboBoxTstPllSelected.ItemsSource = _listofTestNames;
+                    break;
+                case 1:
+
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void ButtonStart_Click(object sender, RoutedEventArgs e)
+        {
+            _telegramClient.Start();
+        }
+
+
+
+
     }
     
 }
